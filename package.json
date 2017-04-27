@@ -1,0 +1,23 @@
+{
+  "name": "GHStackathon",
+  "version": "1.0.0",
+  "description": "Pair Programming Feedback",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meschreiber/GHStackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meschreiber/GHStackathon/issues"
+  },
+  "homepage": "https://github.com/Meschreiber/GHStackathon#readme",
+  "dependencies": {
+    "d3": "^4.8.0"
+  }
+}
