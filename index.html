@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <link rel="stylesheet" href="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.css">
+  <title>Radar chart</title>
+</head>
+
+<body>
+  <div id="body">
+    <div id="chart"></div>
+  </div>
+  <script src="http://d3js.org/d3.v3.js"></script>
+  <script src="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.js"></script>
+
+</body>
+
+<span></span>
+
+<script>
+  var w = 500,
+	h = 500;
+
+//Legend titles
+var LegendOptions = ['Self','Peers'];
+
+
+  // Hard-coded fake data
+  var data = [
+    {
+      className: 'self', // optional can be used for styling
+      axes: [
+        { axis: "communication", value: 5 },
+        { axis: "plays well with others", value: 4 },
+        { axis: "open to new ideas", value: 5 },
+        { axis: "organization and preparation", value: 5 },
+        { axis: "driven and independent", value: 5 }
+      ]
+    },
+    {
+      className: 'peer',
+      axes: [
+        { axis: "communication", value: 3.5 },
+        { axis: "plays well with others", value: 2 },
+        { axis: "open to new ideas", value: 2.7 },
+        { axis: "organization and preparation", value: 4.5 },
+        { axis: "driven and independent", value: 4.7 }
+      ]
+    }
+  ];
+//Options for the Radar chart, other than default
+var mycfg = {
+  w: w,
+  h: h,
+  maxValue: 5,
+  levels: 5,
+}
+
+//Call function to draw the Radar chart
+//Will expect that data is in %'s
+RadarChart.draw("#chart", data, mycfg);
+
+////////////////////////////////////////////
+/////////// Initiate legend ////////////////
+////////////////////////////////////////////
+
+var svg = d3.select('#body')
+	.selectAll('svg')
+	.append('svg')
+	.attr("width", w+300)
+	.attr("height", h)
+  console.log('d3: ', d3)
+
+//Create the title for the legend
+var text = svg.append("text")
+	.attr("class", "title")
+	.attr('transform', 'translate(90,0)') 
+	.attr("x", w - 70)
+	.attr("y", 10)
+	.attr("font-size", "12px")
+	.attr("fill", "#404040")
+	.text("Pairing reflection and feedback");
+
+		
+//Initiate Legend	
+var legend = svg.append("g")
+	.attr("class", "legend")
+	.attr("height", 100)
+	.attr("width", 200)
+	.attr('transform', 'translate(90,20)');
+
+//Create colour squares
+	legend.selectAll('rect')
+	  .data(LegendOptions)
+	  .enter()
+	  .append("rect")
+	  .attr("x", w - 65)
+	  .attr("y", function(data, i){ return i * 20;})
+	  .attr("width", 10)
+	  .attr("height", 10)
+	  // .style("fill", function(d, i){ return colorscale(i);})
+	  ;
+	//Create text next to squares
+	legend.selectAll('text')
+	  .data(LegendOptions)
+	  .enter()
+	  .append("text")
+	  .attr("x", w - 52)
+	  .attr("y", function(d, i){ return i * 20 + 9;})
+	  .attr("font-size", "11px")
+	  .attr("fill", "#737373")
+	  .text(function(d) { return d; })
+	  ;	
+
+  // var chart = RadarChart.chart();  
+  // var cfg = chart.config(); // retrieve default config
+  // cfg.levels = 5; // change levels to 5
+  // cfg.radius = 5; // what is the difference between radius and levels
+  // cfg.w = 400;
+  // cfg.h = 400;
+  // RadarChart.draw("#chart", data, cfg)
+
+</script>
+
