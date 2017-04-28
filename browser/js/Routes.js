@@ -12,6 +12,7 @@ const Routes = ({ fetchInitialData }) => (
   <Router history={browserHistory}>
     <Route path="/" component={Root} onEnter={fetchInitialData}>
       <IndexRoute component={Form} />
+      <Route path="form" component={Form} />
       <Route path="feedback" component={FeedbackViz} />
       <Route path="*" component={Form} />
     </Route>
@@ -24,7 +25,7 @@ const mapProps = null;
 
 const mapDispatch = dispatch => ({
   fetchInitialData: () => {
-    let weekNum = 1; //hard-coded for now
+    let weekNum = 4; //hard-coded for now
     dispatch(fetchFeedbackFromWeek(weekNum));
   }
 });
