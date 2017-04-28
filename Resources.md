@@ -2,3 +2,5 @@
 * [Configurable Radar Chart](http://bl.ocks.org/chrisrzhou/2421ac6541b68c1680f8)
 * [Improved Spidar Chart] (http://bl.ocks.org/nbremer/6506614)
 * [React and D3] (http://nicolashery.com/integrating-d3js-visualizations-in-a-react-app/)
+* [Radar Chart demo] (https://graves.cl/radar-chart-d3/)
+* [Radar Chart builder] (http://alangrafu.github.io/radar-chart-d3/csv2radar.html)
