@@ -4,7 +4,8 @@ import {render} from 'react-dom'
 
 import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
-import Root from './components/Root'
+// Navbar should only exist in the visualization
+// import Navbar from './components/Navbar'
 import Form from './components/Form'
 import FeedbackViz from './components/FeedbackViz'
 import { fetchFeedbackFromWeek } from './redux/feedback'
@@ -22,7 +23,7 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 /* -----------------    COMPONENT     ------------------ */
 
 
-const App = ({ children, fetchInitialData }) =>
+const App = ({ children }) =>
   <div>
     <nav>
       {/* WhoAmI takes a firebase auth API and renders either a
@@ -36,7 +37,7 @@ const App = ({ children, fetchInitialData }) =>
 
 render(
   <Router history={browserHistory}>
-    <Route path="/" component={Root} onEnter={  fetchInitialData }>
+    <Route path="/" component={App} >
       <IndexRoute component={Form} />
       <Route path="feedback" component={FeedbackViz} />
       <Route path="*" component={Form} />
