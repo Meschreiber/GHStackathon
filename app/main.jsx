@@ -4,8 +4,8 @@ import {render} from 'react-dom'
 
 import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
-// Navbar should only exist in the visualization
-// import Navbar from './components/Navbar'
+
+
 import Form from './components/Form'
 import FeedbackViz from './components/FeedbackViz'
 import { fetchFeedbackFromWeek } from './redux/feedback'
@@ -40,7 +40,7 @@ render(
     <Route path="/" component={App} >
       <IndexRoute component={Form} />
       <Route path="feedback" component={FeedbackViz} />
-      <Route path="*" component={Form} />
+      <Route path="form" component={Form} />
     </Route>
   </Router>,
   document.getElementById('app')
