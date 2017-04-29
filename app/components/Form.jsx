@@ -47,7 +47,7 @@ export default () =>
               <legend >Open to New Ideas</legend>
               <div className="field rating clearfix">
                 <input name="open" type="hidden" />
-              <span className="star clickable" value="1" >★</span>
+                <span className="star clickable" value="1" >★</span>
                 <span className="star clickable" value="2" >★</span>
                 <span className="star clickable" value="3" >★</span>
                 <span className="star clickable" value="4" >★</span>
@@ -61,7 +61,7 @@ export default () =>
               <legend >Organized and Prepared</legend>
               <div className="field rating clearfix">
                 <input name="organized" type="hidden" />
-              <span className="star clickable" value="1" >★</span>
+                <span className="star clickable" value="1" >★</span>
                 <span className="star clickable" value="2" >★</span>
                 <span className="star clickable" value="3" >★</span>
                 <span className="star clickable" value="4" >★</span>
@@ -75,7 +75,7 @@ export default () =>
               <legend >Driven and Independent</legend>
               <div className="field rating clearfix">
                 <input name="driven" type="hidden" />
-              <span className="star clickable" value="1" >★</span>
+                <span className="star clickable" value="1" >★</span>
                 <span className="star clickable" value="2" >★</span>
                 <span className="star clickable" value="3" >★</span>
                 <span className="star clickable" value="4" >★</span>
@@ -85,8 +85,8 @@ export default () =>
           </li>
 
           <br />
-          <li id="strengths" className="commentary">
-            <label>List one of your partner's greatest strengths as a pair programmer.  This can include either qualities and/or technical skills.</label>
+          <li id="strengths">
+              <label className="commentary">List one of your partner's greatest strengths as a pair programmer.  This can include either qualities and/or technical skills.</label>
             <div>
               <textarea
                 className="field textarea medium"
@@ -99,31 +99,23 @@ export default () =>
             </div>
           </li>
 
-          <p >Would you like to share this feedback (strengths) anonymously or non-anonymously?</p>
+          <p>Would you like to share this feedback (strengths) anonymously or non-anonymously?</p>
           <div ng-repeat="option in options" className="ng-scope">
-            <label >
-              <input
-                type="radio"
-                ng-model="partner.opinion"
-                name="pair-rating"
-                className="ng-valid ng-not-empty ng-dirty ng-touched" />
-              Anonymously
-                </label><br />
+            <label className="ng-binding">
+              <input type="radio" name="strength-anon" />Anonymously
+                </label>
+            <br />
           </div>
           <div ng-repeat="option in options" className="ng-scope">
-            <label>
-              <input
-                type="radio"
-                ng-model="partner.opinion"
-                name="pair-rating"
-
-                className="ng-valid ng-not-empty ng-dirty ng-touched" />
-              Put my name on it!
-            </label><br /></div>
+            <label className="ng-binding">
+              <input type="radio" name="strength-anon" />Put my name on it!
+                </label>
+            <br />
+          </div>
 
           <br />
           <li id="improvements" className="notranslate">
-            <label id="title7" for="Field7">Give one specific suggestion on how they could improve as a developer and/or team member.</label>
+            <label className="commentary">Give one specific suggestion on how they could improve as a developer and/or team member.</label>
             <div>
               <textarea
                 className="field textarea medium"
@@ -137,26 +129,17 @@ export default () =>
 
             <p >Would you like to share this feedback (areas of improvement) anonymously or non-anonymously?</p>
             <div ng-repeat="option in options" className="ng-scope">
-              <label >
-                <input
-                  type="radio"
-                  ng-model="partner.opinion"
-                  name="pair-rating"
-                  ng-value="1"
-                  className="ng-valid ng-not-empty ng-dirty ng-touched" />
-                Anonymously
-                </label><br />
+              <label className="ng-binding">
+                <input type="radio" name="improv-anon" />Anonymously
+                </label>
+              <br />
             </div>
             <div ng-repeat="option in options" className="ng-scope">
-              <label>
-                <input
-                  type="radio"
-                  ng-model="partner.opinion"
-                  name="pair-rating"
-                  ng-value="1"
-                  className="ng-valid ng-not-empty ng-dirty ng-touched" />
-                Put my name on it!
-            </label><br /></div>
+              <label className="ng-binding">
+                <input type="radio" name="improv-anon" />Put my name on it!
+                </label>
+              <br />
+            </div>
           </li>
 
           <li>
@@ -169,7 +152,7 @@ export default () =>
             </div>
             <div ng-repeat="option in options" className="ng-scope">
               <label className="ng-binding">
-                <input type="radio" ng-model="partner.opinion" />
+                <input type="radio" ng-model="partner.opinion" name="pair-rating" />
                 I don't mind either way.
             </label>
               <br />

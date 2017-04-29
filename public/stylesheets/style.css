@@ -13,6 +13,7 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
+
 /*-------Description of form at top of page--------*/
 #info {
     border-bottom: 1px dotted #CCCCCC;
@@ -24,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
     list-style-type: none;
     padding-bottom: 10px;
 }
+
 /*-------Ratings fieldsets--------*/
 fieldset {
     border: 0;    
@@ -89,4 +91,8 @@ form li span {
 
 .rating .clicked {
      color: #FFD954; 
+}
+
+textarea {
+  margin: 10px;
 }
