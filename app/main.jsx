@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
 
 import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
@@ -25,12 +25,12 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 
 const App = ({ children }) =>
   <div>
-    <nav>
-      {/* WhoAmI takes a firebase auth API and renders either a
+    <div id='auth'>
+        {/* WhoAmI takes a firebase auth API and renders either a
           greeting and a logout button, or sign in buttons, depending
           on if anyone's logged in */}
-      <WhoAmI auth={auth}/>
-    </nav>
+        <WhoAmI auth={auth} />
+    </div>
     {/* Render our children (whatever the router gives us) */}
     {children}
   </div>

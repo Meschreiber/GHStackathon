@@ -15,29 +15,24 @@ class Navbar extends React.Component {
     return (
       <nav className="navbar navbar-default">
         <div className="container">
-          <div className="navbar-header">
-            <button
-              type="button"
-              className="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target=".navbar-collapse">
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-            </button>
 
-          </div>
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li>
-                <Link to="/week/num-1">previous week</Link>
+                <Link to={`feedback/week/${this.props.week - 1}`}>
+                  <button>❮ Previous week </button>
+                </Link>
               </li>
-              <li> This week: Insert Week Dates </li>
+              <li id='currentWeek'> Week {this.props.week} </li>
               <li>
-                <Link to="/week/num+1">next week</Link>
+                <button>
+                  <Link to={`feedback/week/${this.props.week + 1}`}> Next week ❯ </Link>
+                </button>
               </li>
               <li>
-                <Link to="/summary">Summary</Link>
+                <Link to="feedback/summary">
+                  <button>Summary</button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -48,3 +43,16 @@ class Navbar extends React.Component {
 }
 
 export default Navbar
+
+// This will become the hamburger?
+          // <div className="navbar-header">
+          //   <button
+          //     type="button"
+          //     className="navbar-toggle collapsed"
+          //     data-toggle="collapse"
+          //     data-target=".navbar-collapse">
+          //     <span className="icon-bar" />
+          //     <span className="icon-bar" />
+          //     <span className="icon-bar" />
+          //   </button>
+          // </div>
