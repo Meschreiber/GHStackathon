@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import Navbar from './Navbar'
 import RadarChart from './Radar'
 import Comments from './Comments'
+import { VictoryBar, VictoryGroup, VictoryStack } from 'victory'
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -53,19 +54,52 @@ class FeedbackViz extends React.Component {
     return (
       <div>
         <Navbar week={4} />
-        <div id="main">
-          <div id="radar">
-            <RadarChart />
+        <div id='main'>
+          <div id='radar'>
+            <VictoryGroup
+              horizontal={true}
+              events={[{
+                childName: ['bar-1', 'bar-2'],
+                target: 'data',
+                eventHandlers: {
+                  onClick: () => {
+                    return [
+                      {
+                        childName: ['bar-3', 'bar-4'],
+                        target: 'data',
+                        mutation: (props) => {
+                          const fill = props.style.fill
+                          return fill === 'gold' ? null : { style: { fill: 'gold' } }
+                        },
+                        callback: () => {
+                          console.log('I happen after setState')
+                        }
+                      }
+                    ]
+                  }
+                }
+              }]}
+            >
+              <VictoryStack>
+                <VictoryBar name='bar-1'
+                  data={[{ x: 'a', y: 2 }, { x: 'b', y: 3 }, { x: 'c', y: 5 }]}
+                />
+                <VictoryBar name='bar-2'
+                  data={[{ x: 'a', y: 1 }, { x: 'b', y: 4 }, { x: 'c', y: 5 }]}
+                />
+              </VictoryStack>
+
+            </VictoryGroup>
           </div>
           <div />
-          <div id="allComments">
+          <div id='allComments'>
             <h1>Strengths and Contributions</h1>
-            <div className="comments" id="strengths">
+            <div className='comments' id='strengths'>
               <Comments comments={strengthComments} />
             </div>
             <br />
             <h1>Areas for improvement</h1>
-            <div className="comments" id="strengths">
+            <div className='comments' id='strengths'>
               <Comments comments={improvementComments} />
             </div>
           </div>
