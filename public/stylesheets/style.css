@@ -1,0 +1,98 @@
+body {
+    margin: 17px 5px 15px 5px;
+    padding: 0;
+    text-align: left;
+    font-size: small;
+    font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 17px 10px 15px 10px;
+    font-family: 'Avenir', sans-serif !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/*-------Description of form at top of page--------*/
+#info {
+    border-bottom: 1px dotted #CCCCCC;
+      margin: 17px 10px 15px 10px;
+}
+
+/*-------Form list items--------*/
+#form li {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+
+/*-------Ratings fieldsets--------*/
+fieldset {
+    border: 0;    
+}
+
+/*-------Description of form at top of page--------*/
+.rating span, .rating:hover span:hover ~ span {
+    font-size: 20px;
+    line-height: 1em;
+    width: .9em;
+    height: 1em;
+    padding-right: .1em;
+    color: #c7c7c7;
+    text-shadow: 0 0 1px #444;
+}
+
+.rating .clicked {
+    /* color: #FFD954; */
+}
+li span {
+    font-family: inherit;
+    color: #444444;
+}
+
+
+.rating span {
+    cursor: pointer;
+}
+
+form li div span {
+    margin: 0;
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+form li span {
+    margin: 0 .3em 0 0;
+    padding: 0;
+    float: left;
+    color: #444;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}
+
+.rating > span:hover, .rating .clicked:hover, .rating:hover span {
+    color: #ffe487;
+    text-shadow: 0 0 1px #ff0000;
+    cursor: pointer;
+}
+
+.rating .clicked {
+     color: #FFD954; 
+}
+
+textarea {
+  margin: 10px;
+}
