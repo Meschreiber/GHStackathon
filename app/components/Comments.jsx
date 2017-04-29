@@ -6,13 +6,13 @@ export default (props) => {
         <blockquote>
           <p>{comment.text}</p>
         </blockquote>
-        <p id="author"> - {comment.author}</p>
+        <p className="author"> - {comment.author}</p>
       </li>
     </div>
   )
 
   return (
-    <div className="comments">
+    <div>
       <ul>
         {comments}
       </ul>

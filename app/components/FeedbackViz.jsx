@@ -59,11 +59,12 @@ class FeedbackViz extends React.Component {
           </div>
           <div />
           <div id="allComments">
-            <div id="strengths">
+            <div className="comments" id="strengths">
               <h1>Strengths and Contributions</h1>
               <Comments comments={strengthComments} />
             </div>
-            <div id="improvements">
+            <br/>
+            <div className="comments" id="improvements">
               <h1>Areas for improvement</h1>
               <Comments comments={improvementComments}/>
             </div>
