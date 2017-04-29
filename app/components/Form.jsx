@@ -7,12 +7,12 @@ export default () =>
       <header id="header" className="info">
         <h2>Partner Feedback Form</h2>
         <div id="info">
-          Please use this opportunity to give constructive criticism to your partner.  All feedback can be shared anonymously if you choose to do so.
+          <p>Please use this opportunity to give constructive criticism to your partner.  All feedback can be shared anonymously if selected.</p>
           </div>
       </header>
       <form>
         <ul id="form">
-          <p> Rate your partner on the following skills and qualities from 0 to 5. All ratings are shared anonymously. </p>
+          <p> Rate your partner on the following skills and qualities from 0 to 5. Ratings are always shared anonymously. </p>
           <li id="communication" className="starRating">
             <fieldset>
               <legend >General Communication Skills</legend>
