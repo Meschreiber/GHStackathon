@@ -39,6 +39,7 @@ export default class extends React.Component {
   // is always bound to this.
   write = event => this.props.fireRef &&
     this.props.fireRef.set(event.target.value)
+    // in your own case, push on submit to add another entry
 
   render() {
     const {value} = this.state || {}

@@ -21,8 +21,7 @@
     "test-watch": "npm run test -- --watch --reporter=min",
     "seed": "node db/seed.js",
     "lint": "esw . --ignore-path .gitignore --ext '.js,.jsx'",
-    "lint-watch": "npm run lint -- -w",
-    "prepush": "npm run lint && npm run test"
+    "lint-watch": "npm run lint -- -w"
   },
   "repository": {
     "type": "git",
@@ -54,6 +53,7 @@
     "express": "^4.14.0",
     "finalhandler": "^1.0.0",
     "firebase": "^3.9.0",
+    "firebase-admin": "^4.2.1",
     "homedir": "^0.6.0",
     "immutable": "^3.8.1",
     "passport": "^0.3.2",
