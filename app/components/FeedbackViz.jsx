@@ -52,21 +52,21 @@ class FeedbackViz extends React.Component {
 
     return (
       <div>
-        <Navbar />
+        <Navbar week={4} />
         <div id="main">
           <div id="radar">
             <RadarChart />
           </div>
           <div />
           <div id="allComments">
+            <h1>Strengths and Contributions</h1>
             <div className="comments" id="strengths">
-              <h1>Strengths and Contributions</h1>
               <Comments comments={strengthComments} />
             </div>
-            <br/>
-            <div className="comments" id="improvements">
-              <h1>Areas for improvement</h1>
-              <Comments comments={improvementComments}/>
+            <br />
+            <h1>Areas for improvement</h1>
+            <div className="comments" id="strengths">
+              <Comments comments={improvementComments} />
             </div>
           </div>
         </div>

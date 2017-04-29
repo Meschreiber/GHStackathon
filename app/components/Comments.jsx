@@ -1,4 +1,5 @@
 import React from 'react'
+
 export default (props) => {
   const comments = props.comments.map((comment) =>
     <div key={comment.id}>
