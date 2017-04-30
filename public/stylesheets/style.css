@@ -1,14 +1,20 @@
+html {
+  height: 100px;
+
+}
+
 body {
     margin: 17px 5px 15px 5px;
     padding: 0;
     text-align: left;
     font-size: small;
     font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    overflow-y: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 17px 10px 15px 10px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-align: center !important;
 }
@@ -59,8 +65,8 @@ button {
   text-align: center;
   vertical-align: middle;
   overflow-x: scroll;
-  margin-top: 8%;
-  margin-bottom: 8%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 
 }
 
@@ -259,7 +265,8 @@ textarea {
   width: 100%;
   background-color:darkslategrey;
   text-align: center;
-  margin-top: 0px;
+  margin-top: -15px;
+  padding: 0px;
   text-transform: uppercase;
 }
 
@@ -288,5 +295,5 @@ textarea {
 }*/
 
 .googlelogin .logout {
-  font-size: .75em; !important;
+  font-size: .75em !important;
 }
