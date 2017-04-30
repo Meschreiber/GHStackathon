@@ -90,11 +90,8 @@ export default () =>
             <div>
               <textarea
                 className="field textarea medium"
-                spellcheck="true"
                 rows="10"
-                cols="150"
-                onkeyup="handleInput(this);"
-                onchange="handleInput(this);">
+                cols="150">
               </textarea>
             </div>
           </li>
@@ -105,7 +102,6 @@ export default () =>
             <div>
               <textarea
                 className="field textarea medium"
-                spellcheck="true"
                 rows="10"
                 cols="150"
                 onkeyup="handleInput(this); "
@@ -113,7 +109,7 @@ export default () =>
               ></textarea>
             </div>
             </li>
-          <button className="btn btn-primary mt1" ng-click="submit(partner)">Submit</button>
+          <button className="btn btn-primary mt1">Submit</button>
         </ul>
       </form>
     </div>

@@ -8,7 +8,7 @@ export default () =>
         <h2>Partner Feedback Form</h2>
         <div id="info">
           <p>Please use this opportunity to give constructive criticism to your partner.  All feedback can be shared anonymously if selected.</p>
-          </div>
+        </div>
       </header>
       <form>
         <ul id="form">
@@ -86,92 +86,85 @@ export default () =>
 
           <br />
           <li id="strengths">
-              <label className="commentary">List one of your partner's greatest strengths as a pair programmer.  This can include either qualities and/or technical skills.</label>
+            <label className="commentary">List one of your partner's greatest strengths as a pair programmer.  This can include either qualities and/or technical skills.</label>
             <div>
               <textarea
                 className="field textarea medium"
-                spellcheck="true"
                 rows="10"
                 cols="150"
-                onkeyup="handleInput(this);"
-                onchange="handleInput(this);">
-              </textarea>
+              />
             </div>
           </li>
 
-          <p>Would you like to share this feedback (strengths) anonymously or non-anonymously?</p>
-          <div ng-repeat="option in options" className="ng-scope">
-            <label className="ng-binding">
-              <input type="radio" name="strength-anon" />Anonymously
+        <p>Would you like to share this feedback (strengths) anonymously or non-anonymously?</p>
+        <div>
+          <label>
+            <input type="radio" name="strength-anon" />Anonymously
                 </label>
-            <br />
-          </div>
-          <div ng-repeat="option in options" className="ng-scope">
-            <label className="ng-binding">
-              <input type="radio" name="strength-anon" />Put my name on it!
-                </label>
-            <br />
-          </div>
-
           <br />
-          <li id="improvements" className="notranslate">
-            <label className="commentary">Give one specific suggestion on how they could improve as a developer and/or team member.</label>
-            <div>
-              <textarea
-                className="field textarea medium"
-                spellcheck="true"
-                rows="10"
-                cols="150"
-                onkeyup="handleInput(this); "
-                onchange="handleInput(this);"
-              ></textarea>
-            </div>
-
-            <p >Would you like to share this feedback (areas of improvement) anonymously or non-anonymously?</p>
-            <div ng-repeat="option in options" className="ng-scope">
-              <label className="ng-binding">
-                <input type="radio" name="improv-anon" />Anonymously
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="strength-anon" />Put my name on it!
                 </label>
-              <br />
-            </div>
-            <div ng-repeat="option in options" className="ng-scope">
-              <label className="ng-binding">
-                <input type="radio" name="improv-anon" />Put my name on it!
-                </label>
-              <br />
-            </div>
-          </li>
+          <br />
+        </div>
 
-          <li>
-            <p >Please tell us if you would like to pair with Allison Alexander in the future. We will keep this confidential.</p>
-            <div>
-              <label className="ng-binding">
-                <input type="radio" ng-model="partner.opinion" name="pair-rating" />Yes, please!
-            </label>
-              <br />
-            </div>
-            <div ng-repeat="option in options" className="ng-scope">
-              <label className="ng-binding">
-                <input type="radio" ng-model="partner.opinion" name="pair-rating" />
-                I don't mind either way.
-            </label>
-              <br />
-            </div>
-            <div ng-repeat="option in options" className="ng-scope">
-              <label className="ng-binding">
-                <input type="radio" ng-model="partner.opinion" name="pair-rating" />I'd prefer not to, thanks.</label>
-              <br />
-            </div>
-            <br />
+        <br />
+        <li id="improvements" className="notranslate">
+          <label className="commentary">Give one specific suggestion on how they could improve as a developer and/or team member.</label>
+          <div>
             <textarea
-              placeholder="Leave an optional comment"
-              rows="2"
-              cols="150"></textarea>
+              className="field textarea medium"
+              rows="10"
+              cols="150" />
+          </div>
+
+          <p >Would you like to share this feedback (areas of improvement) anonymously or non-anonymously?</p>
+          <div>
+            <label>
+              <input type="radio" />Anonymously
+                </label>
             <br />
-            <label className="block mt1 mb1"><input ng-model="partner.wantsToTalk" type="checkbox" className="ng-pristine ng-untouched ng-valid ng-empty" />I want to talk to someone about this pairing</label>
-          </li>
-          <button className="btn btn-primary mt1" ng-click="submit(partner)">Submit</button>
+          </div>
+          <div>
+            <label>
+              <input type="radio" />Put my name on it!
+                </label>
+            <br />
+          </div>
+        </li>
+
+        <li>
+          <p >Please tell us if you would like to pair with Allison Alexander in the future. We will keep this confidential.</p>
+          <div>
+            <label>
+              <input type="radio" name="pair-rating" />Yes, please!
+            </label>
+            <br />
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="pair-rating" />
+              I don't mind either way.
+            </label>
+            <br />
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="pair-rating" />I'd prefer not to, thanks.</label>
+            <br />
+          </div>
+          <br />
+          <textarea
+            placeholder="Leave an optional comment"
+            rows="2"
+            cols="150" />
+          <br />
+          <label><input type="checkbox" />I want to talk to someone about this pairing</label>
+        </li>
+        <button className="btn btn-primary mt1">Submit</button>
         </ul>
       </form>
-    </div>
+    </div >
   )

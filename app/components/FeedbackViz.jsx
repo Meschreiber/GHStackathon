@@ -7,7 +7,7 @@ import { data, summary } from './data'
 
 import * as ReactD3 from 'react-d3-components'
 var BarChart = ReactD3.BarChart
-console.log('REACTD3', BarChart)
+
 
 var tooltipBar = function(x, y0, y) {
   let characteristic = ''
