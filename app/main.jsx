@@ -7,6 +7,7 @@ import NotFound from './components/NotFound'
 
 
 import Form from './components/Form'
+import ReflectionForm from './components/ReflectionForm'
 import FeedbackViz from './components/FeedbackViz'
 import { fetchFeedbackFromWeek } from './redux/feedback'
 
@@ -26,10 +27,10 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 const App = ({ children }) =>
   <div>
     <div id='auth'>
-        {/* WhoAmI takes a firebase auth API and renders either a
+      {/* WhoAmI takes a firebase auth API and renders either a
           greeting and a logout button, or sign in buttons, depending
           on if anyone's logged in */}
-        <WhoAmI auth={auth} />
+      <WhoAmI auth={auth} />
     </div>
     {/* Render our children (whatever the router gives us) */}
     {children}
@@ -41,6 +42,7 @@ render(
       <IndexRoute component={Form} />
       <Route path="feedback" component={FeedbackViz} />
       <Route path="form" component={Form} />
+      <Route path="reflection" component={ReflectionForm} />
     </Route>
   </Router>,
   document.getElementById('app')
