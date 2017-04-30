@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link, browserHistory } from 'react-router'
 
-import WhoAmI from './components/WhoAmI'
+import WhoAmI from './WhoAmI'
 
 import firebase from 'APP/fire'
 
@@ -16,13 +16,24 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 /* -----------------    COMPONENT     ------------------ */
 
 const Viewbar = () =>
-  <nav className="navbar navbar-default">
-    <div id='auth'>
-      {/* WhoAmI takes a firebase auth API and renders either a
+  <div>
+    <ul className="viewbar">
+      <li>
+        <Link to="/reflection" activeClassName="active">Self Reflection Form</Link>
+      </li>
+      <li>
+        <Link to="/form" activeClassName="active">Partner Feedback Form</Link>
+      </li>
+      <li>
+        <Link to="/feedback" activeClassName="active">Feedback Visualization</Link>
+      </li>
+      <li>
+        {/* WhoAmI takes a firebase auth API and renders either a
           greeting and a logout button, or sign in buttons, depending
           on if anyone's logged in */}
-      <WhoAmI auth={auth} />
-    </div>
-  </nav>
+        <WhoAmI auth={auth} />
+      </li>
+    </ul>
+  </div>
 
 export default Viewbar

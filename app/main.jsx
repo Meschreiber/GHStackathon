@@ -25,7 +25,7 @@ import Viewbar from './components/Viewbar'
 
 const App = ({ children }) =>
   <div>
-    <div id='auth'>
+    <div id='views'>
       <Viewbar />
     </div>
     {/* Render our children (whatever the router gives us) */}

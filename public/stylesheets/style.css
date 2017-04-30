@@ -42,9 +42,6 @@ button {
     text-align: center;
     }
 
-#auth {
-  float: right;
-}
 
 
 /*-------General Feedback Page--------*/
@@ -200,9 +197,8 @@ fieldset {
 }
 li span {
     font-family: inherit;
-    color: #444444;
+    /*color: #444444;*/
 }
-
 
 .rating span {
     cursor: pointer;
@@ -249,3 +245,40 @@ form li span {
 textarea {
   margin: 10px;
 }
+
+
+/*-------Viewbar--------*/
+
+#views {
+  width: 100%;
+  background-color:darkslategrey;
+  text-align: center;
+  margin-top: 0px;
+  text-transform: uppercase;
+}
+
+.whoami {
+  display: inline;
+  color: white !important;
+  text-transform: none;
+}
+
+.viewbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+.viewbar li {
+  display: inline;
+  margin: 0 3% 0 3%;
+  font-size: 1.1em;
+}
+
+/*.viewbar ul > li:first-child {
+  margin-left: 0px;
+}*/
+
+/*.googlelogin .logout {
+  background-color: yellowgreen !important;
+}*/
