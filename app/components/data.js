@@ -1,5 +1,5 @@
 // Closure
-(function () {
+(function() {
   /**
    * Decimal adjustment of a number.
    *
@@ -33,19 +33,19 @@
 
   // Decimal round
   if (!Math.round10) {
-    Math.round10 = function (value, exp) {
+    Math.round10 = function(value, exp) {
       return decimalAdjust('round', value, exp)
     }
   }
   // Decimal floor
   if (!Math.floor10) {
-    Math.floor10 = function (value, exp) {
+    Math.floor10 = function(value, exp) {
       return decimalAdjust('floor', value, exp)
     }
   }
   // Decimal ceil
   if (!Math.ceil10) {
-    Math.ceil10 = function (value, exp) {
+    Math.ceil10 = function(value, exp) {
       return decimalAdjust('ceil', value, exp)
     }
   }
@@ -139,9 +139,9 @@ const strengthComments = [
   'her energy and optimism are wonderful!'
 ]
 
+let counter = 0
 var data = weekNames.map((weekName, index) => {
   var datum = new Datum(index + 1, weekName, randomRatings())
-  let counter = 0
   let idArr = [++counter, ++counter, ++counter]
   datum.strengthComments = idArr.map(id => new Comment(id, strengthComments[Math.round(Math.random() * 20)], classMates[Math.round(Math.random() * 20)]))
   idArr = [++counter, ++counter, ++counter]
@@ -150,4 +150,35 @@ var data = weekNames.map((weekName, index) => {
   return datum
 })
 
-export default data
+
+let summaryRatings = new Ratings([0, 0, 0, 0, 0], [0, 0, 0, 0, 0])
+
+data.forEach(datum => {
+  datum.ratings[0].values.forEach((characterRating, index) => {
+    summaryRatings[0].values[index]['y'] += characterRating['y']
+  })
+  datum.ratings[1].values.forEach((characterRating, index) => {
+    summaryRatings[1].values[index]['y'] += characterRating['y']
+  })
+})
+
+summaryRatings[0].values.forEach(rating => {
+  rating['y'] = Math.round10(rating['y'] / data.length, -1)
+})
+
+summaryRatings[1].values.forEach(rating => {
+  rating['y'] = Math.round10(rating['y'] / data.length, -1)
+})
+
+const summary = new Datum(data.length, 'summary', summaryRatings)
+
+data.forEach(datum => {
+  datum.strengthComments.forEach(comment => {
+    summary.strengthComments.push(comment)
+  })
+  datum.improvementComments.forEach(comment => {
+    summary.improvementComments.push(comment)
+  })
+})
+
+export {data, summary}
