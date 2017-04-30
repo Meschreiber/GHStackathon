@@ -12,24 +12,23 @@ console.log('REACTD3', BarChart)
 var tooltipBar = function(x, y0, y) {
   let characteristic = ''
   switch (x) {
-    case 'C':
-      characteristic = 'communication'
-      break;
-    case 'N':
-      characteristic = 'plays nice'
-      break;
-    case 'P':
-      characteristic = 'prepared'
-      break;
-    case 'I':
-      characteristic = 'independent'
-      break;
-    case 'O':
-      characteristic = 'open'
-      break;
-
-    default:
-      break;
+  case 'C':
+    characteristic = 'communication'
+    break
+  case 'N':
+    characteristic = 'plays nice'
+    break
+  case 'P':
+    characteristic = 'prepared'
+    break
+  case 'I':
+    characteristic = 'independent'
+    break
+  case 'O':
+    characteristic = 'open'
+    break
+  default:
+    break
   }
   return characteristic + ": " + y;
 }

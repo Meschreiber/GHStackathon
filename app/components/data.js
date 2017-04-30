@@ -83,16 +83,16 @@ function Ratings(peerArr, selfArr) {
 }
 
 const randomSelf = (length, max) => [...new Array(length)]
-  .map(() => Math.round(Math.random() * max))
+  .map(() => Math.round(Math.random() * max) + 1)
 
 const randomPeer = (length, max) => [...new Array(length)]
-  .map(() => Math.round10(Math.random() * max, -1))
+  .map(() => Math.round10(Math.random() * max, -1) + 1)
 
-const randomRatings = () => new Ratings(randomPeer(5, 5), randomSelf(5, 5))
+const randomRatings = () => new Ratings(randomPeer(5, 4), randomSelf(5, 4))
 
 const weekNames = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Grace Shopper']
 
-const classMates = ['Jodie', 'Rachel', 'Fish', 'Colleen', 'Mercedes', 'Ruth', 'Stefanie', 'Stefanie', 'Fanny', 'Arin', 'Allison', 'Elsa', 'Nitika', 'Keziyah', 'Cigdam', 'Sarah', 'Tina', 'Anonymous', 'Anonymous', 'Anonymous']
+const classMates = ['Jodie', 'Rachel', 'Fish', 'Colleen', 'Mercedes', 'Ruth', 'Stefanie', 'Stefanie', 'Fanny', 'Arin', 'Allison', 'Elsa', 'Nitika', 'Keziyah', 'Cigdam', 'Sarah', 'Tina', 'Anonymous', 'Anonymous', 'Anonymous', 'Anonymous', 'Anonymous', 'Anonymous']
 
 const improvementComments = [
   'Nothing! Maria is perfect in each and every way.',
@@ -110,10 +110,10 @@ const improvementComments = [
   'she wanted to google everything and never ask for help',
   'she tried to explain everything to me all the time as though I had no clue what was going on',
   'working with her is fine, but I am worried about the amount of cereal she is eating',
-  'Maria didn\'t seem to be taking things seriously enough.',
+  'Her banana bread is just too buttery',
   'She just wanted to work on a codewars problem instead of the workshop.',
   'when navigating she wasn\'t very helpful',
-  'As a driver, she seemed to think she was just a typist and did not think very much. As a navigator she acted as though I wasn\'t allowed to have ideas.',
+  'As a driver, she acted like she was just a typist and did not think very much. As a navigator she acted as though I wasn\'t allowed to have ideas.',
   'sometimes her moodswings were a bit much',
   'she seemed sleep-deprived. GET SOME SLEEP GIRL'
 ]
@@ -136,17 +136,20 @@ const strengthComments = [
   'Maria is a really great navigator -- she has docs and references handy and thinks in terms of the big picture.',
   'Maria really knows her stuff. She clearly read and re-read the pre-reading and took detailed notes during the lecture. She was also able to communicate her ideas clearly',
   'Maria was super driven to finish the workshop even though we were lagging sometimes.',
-  'her energy and optimism are wonderful!'
+  'her energy and optimism are wonderful!',
+  'Maria has got a great handle on React Router',
+  'I really like her VSCode color scheme',
+  'She showed me how to insert emoji\'s into my command line. Thanks, Maria!'
 ]
 
 let counter = 0
 var data = weekNames.map((weekName, index) => {
   var datum = new Datum(index + 1, weekName, randomRatings())
-  let idArr = [++counter, ++counter, ++counter]
-  datum.strengthComments = idArr.map(id => new Comment(id, strengthComments[Math.round(Math.random() * 20)], classMates[Math.round(Math.random() * 20)]))
-  idArr = [++counter, ++counter, ++counter]
+  var idArr = [counter++, counter++, counter++]
+  datum.strengthComments = idArr.map(id =>
+    new Comment(id, strengthComments[id], classMates[Math.round(Math.random() * 20)]))
   datum.improvementComments = idArr.map(id =>
-    new Comment(id, improvementComments[Math.round(Math.random() * 20)], classMates[Math.round(Math.random() * 20)]))
+    new Comment(id, improvementComments[id], classMates[Math.round(Math.random() * 20)]))
   return datum
 })
 
