@@ -12,6 +12,7 @@ class Navbar extends React.Component {
   }
 
   render() {
+    console.log('THE WEEK', this.props.weekId, 'disabled? ', +this.props.weekId >= 6)
     return (
       <nav className="navbar navbar-default">
         <div className="container">
@@ -20,14 +21,17 @@ class Navbar extends React.Component {
             <ul className="nav navbar-nav">
               <li>
                 <Link to={`/feedback/week/${+this.props.weekId - 1}`}>
-                  <button disabled={+this.props.weekId === 1} className="week-button">❮ Previous week </button>
+                  <button disabled={+this.props.weekId === 1} className="week-button">
+                    ❮ Previous week </button>
                 </Link>
               </li>
               <li id='currentWeek'> {this.props.title} </li>
               <li>
-                <button disabled={+this.props.weekId >= 6} className="week-button">
-                  <Link to={`/feedback/week/${+this.props.weekId + 1}`}> Next week ❯ </Link>
+                <Link to={`/feedback/week/${+this.props.weekId + 1}`}>
+                  <button disabled={+this.props.weekId > 6} className="week-button">
+                    Next week ❯
                 </button>
+                </Link>
               </li>
               <li>
                 <Link to="/feedback/week/8">
