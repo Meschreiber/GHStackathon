@@ -44,6 +44,42 @@ const ratings = [
   }
 ]
 
+var strengthComments = [
+  {
+    id: 1,
+    text: 'Maria really knows her stuff. She clearly read and re-read the pre-reading and took detailed notes during the lecture. She was also able to communicate her ideas clearly.',
+    author: 'Anonymous'
+  },
+  {
+    id: 2,
+    text: 'Maria\'s strong grasp of CSS really helped us get through the ShoeString workshop.',
+    author: 'Colleen'
+  },
+  {
+    id: 3,
+    text: 'She is so focused and made me focused too. I don\'t think we took a break once in 6 hours! Also, her notes are out of this world.',
+    author: 'Fish'
+  },
+]
+
+var improvementComments = [
+  {
+    id: 4,
+    text: 'I don\'t think we took a break once in 6 hours ....',
+    author: 'Fish'
+  },
+  {
+    id: 5,
+    text: 'For lack of a better way to say it, Maria can be difficult to work with. She insisted on driving AND navigating the entire time. I wish she had been open to some of my ideas',
+    author: 'Kate'
+  },
+  {
+    id: 6,
+    text: 'Nothing! Maria is perfect in each and every way.',
+    author: 'Jodie'
+  },
+]
+
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -55,42 +91,6 @@ class FeedbackViz extends React.Component {
   }
 
   render() {
-    var strengthComments = [
-      {
-        id: 1,
-        text: 'Maria really knows her stuff. She clearly read and re-read the pre-reading and took detailed notes during the lecture. She was also able to communicate her ideas clearly.',
-        author: 'Anonymous'
-      },
-      {
-        id: 2,
-        text: 'Maria might be the most naturally gifted programmer in the cohort.',
-        author: 'Jodie'
-      },
-      {
-        id: 3,
-        text: 'She is so focused and made me focused too. I don\'t think we took a break once in 6 hours! Also, her notes are out of this world.',
-        author: 'Fish'
-      },
-    ]
-
-    var improvementComments = [
-      {
-        id: 4,
-        text: 'I don\'t think we took a break once in 6 hours ....',
-        author: 'Fish'
-      },
-      {
-        id: 5,
-        text: 'For lack of a better way to say it, Maria can be difficult to work with. She insisted on driving AND navigating the entire time. I wish she had been open to some of my ideas',
-        author: 'Anonymous'
-      },
-      {
-        id: 6,
-        text: 'Nothing! Maria is perfect in each and every way.',
-        author: 'Jodie'
-      },
-    ]
-
     return (
       <div>
         <Navbar week={2} />
