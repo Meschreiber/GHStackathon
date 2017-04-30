@@ -9,16 +9,15 @@ import NotFound from './components/NotFound'
 import Form from './components/Form'
 import ReflectionForm from './components/ReflectionForm'
 import FeedbackViz from './components/FeedbackViz'
-import { fetchFeedbackFromWeek } from './redux/feedback'
+import Viewbar from './components/Viewbar'
+// import { fetchFeedbackFromWeek } from './redux/feedback'
 
-import firebase from 'APP/fire'
-
-// Get the auth API from Firebase.
-const auth = firebase.auth()
-
-// Ensure that we have (almost) always have a user ID, by creating
-// an anonymous user if nobody is signed in.
-auth.onAuthStateChanged(user => user || auth.signInAnonymously())
+// import firebase from 'APP/fire'
+// // Get the auth API from Firebase.
+// const auth = firebase.auth()
+// // Ensure that we have (almost) always have a user ID, by creating
+// // an anonymous user if nobody is signed in.
+// auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 
 
 /* -----------------    COMPONENT     ------------------ */
@@ -27,10 +26,7 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 const App = ({ children }) =>
   <div>
     <div id='auth'>
-      {/* WhoAmI takes a firebase auth API and renders either a
-          greeting and a logout button, or sign in buttons, depending
-          on if anyone's logged in */}
-      <WhoAmI auth={auth} />
+      <Viewbar />
     </div>
     {/* Render our children (whatever the router gives us) */}
     {children}
@@ -47,17 +43,3 @@ render(
   </Router>,
   document.getElementById('app')
 )
-
-
-/* -----------------    CONTAINER     ------------------ */
-
-// const mapProps = null;
-
-// const mapDispatch = dispatch => ({
-//   fetchInitialData: () => {
-//     let weekNum = 1; //hard-coded for now
-//     dispatch(fetchFeedbackFromWeek(weekNum));
-//   }
-// });
-
-// export default connect(mapProps, mapDispatch)(Routes);
