@@ -125,7 +125,6 @@ export default class extends React.Component {
                 </div>
               </fieldset>
             </li>
-
             <br />
             <li id="strengths">
               <label className="commentary">What was one of your greatest strengths as a pair programmer this week?  This can include either qualities and/or technical skills.</label>
@@ -135,12 +134,9 @@ export default class extends React.Component {
                   spellcheck="true"
                   rows="10"
                   cols="150"
-                  onkeyup="handleInput(this);"
-                  onchange="handleInput(this);">
-                </textarea>
+                />
               </div>
             </li>
-
             <br />
             <li id="improvements" className="notranslate">
               <label className="commentary">What is one thing you would like to improve upon or learn about for next week?</label>
@@ -150,15 +146,14 @@ export default class extends React.Component {
                   spellcheck="true"
                   rows="10"
                   cols="150"
-                  onkeyup="handleInput(this); "
-                  onchange="handleInput(this);"
-                ></textarea>
+                />
               </div>
             </li>
-            <button className="btn btn-primary mt1" ng-click="submit(partner)">Submit</button>
+            <button className="btn btn-primary mt1">Submit</button>
           </ul>
         </form>
       </div>
     )
   }
 }
+

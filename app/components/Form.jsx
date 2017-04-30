@@ -6,7 +6,6 @@ export default class extends React.Component {
     // we were given.
     this.listenTo(this.props.fireRef)
   }
-
   componentWillUnmount() {
     // When we unmount, stop listening.
     this.unsubscribe()
@@ -131,23 +130,21 @@ export default class extends React.Component {
               <div>
                 <textarea
                   className="field textarea medium"
-                  spellcheck="true"
                   rows="10"
                   cols="150"
-                  value={value}
-                  onChange={this.write} />
+                />
               </div>
             </li>
 
             <p>Would you like to share this feedback (strengths) anonymously or non-anonymously?</p>
-            <div ng-repeat="option in options" className="ng-scope">
-              <label className="ng-binding">
+            <div>
+              <label>
                 <input type="radio" name="strength-anon" />Anonymously
                 </label>
               <br />
             </div>
-            <div ng-repeat="option in options" className="ng-scope">
-              <label className="ng-binding">
+            <div>
+              <label>
                 <input type="radio" name="strength-anon" />Put my name on it!
                 </label>
               <br />
@@ -159,24 +156,20 @@ export default class extends React.Component {
               <div>
                 <textarea
                   className="field textarea medium"
-                  spellcheck="true"
                   rows="10"
-                  cols="150"
-                  onkeyup="handleInput(this); "
-                  onchange="handleInput(this);"
-                ></textarea>
+                  cols="150" />
               </div>
 
               <p >Would you like to share this feedback (areas of improvement) anonymously or non-anonymously?</p>
-              <div ng-repeat="option in options" className="ng-scope">
-                <label className="ng-binding">
-                  <input type="radio" name="improv-anon" />Anonymously
+              <div>
+                <label>
+                  <input type="radio" />Anonymously
                 </label>
                 <br />
               </div>
-              <div ng-repeat="option in options" className="ng-scope">
-                <label className="ng-binding">
-                  <input type="radio" name="improv-anon" />Put my name on it!
+              <div>
+                <label>
+                  <input type="radio" />Put my name on it!
                 </label>
                 <br />
               </div>
@@ -185,35 +178,35 @@ export default class extends React.Component {
             <li>
               <p >Please tell us if you would like to pair with Allison Alexander in the future. We will keep this confidential.</p>
               <div>
-                <label className="ng-binding">
-                  <input type="radio" ng-model="partner.opinion" name="pair-rating" />Yes, please!
+                <label>
+                  <input type="radio" name="pair-rating" />Yes, please!
             </label>
                 <br />
               </div>
-              <div ng-repeat="option in options" className="ng-scope">
-                <label className="ng-binding">
-                  <input type="radio" ng-model="partner.opinion" name="pair-rating" />
+              <div>
+                <label>
+                  <input type="radio" name="pair-rating" />
                   I don't mind either way.
             </label>
                 <br />
               </div>
-              <div ng-repeat="option in options" className="ng-scope">
-                <label className="ng-binding">
-                  <input type="radio" ng-model="partner.opinion" name="pair-rating" />I'd prefer not to, thanks.</label>
+              <div>
+                <label>
+                  <input type="radio" name="pair-rating" />I'd prefer not to, thanks.</label>
                 <br />
               </div>
               <br />
               <textarea
                 placeholder="Leave an optional comment"
                 rows="2"
-                cols="150"></textarea>
+                cols="150" />
               <br />
-              <label className="block mt1 mb1"><input ng-model="partner.wantsToTalk" type="checkbox" className="ng-pristine ng-untouched ng-valid ng-empty" />I want to talk to someone about this pairing</label>
+              <label><input type="checkbox" />I want to talk to someone about this pairing</label>
             </li>
-            <button className="btn btn-primary mt1" ng-click="submit(partner)">Submit</button>
+            <button className="btn btn-primary mt1">Submit</button>
           </ul>
         </form>
-      </div>
+      </div >
     )
   }
 }
