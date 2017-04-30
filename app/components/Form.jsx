@@ -143,7 +143,7 @@ export default () =>
           </li>
 
           <li>
-            <p >Please tell us if you would like to pair with INSERT PARTNER NAME in the future. We will keep this confidential.</p>
+            <p >Please tell us if you would like to pair with Allison Alexander in the future. We will keep this confidential.</p>
             <div>
               <label className="ng-binding">
                 <input type="radio" ng-model="partner.opinion" name="pair-rating" />Yes, please!

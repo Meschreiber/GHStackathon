@@ -20,18 +20,18 @@ class Navbar extends React.Component {
             <ul className="nav navbar-nav">
               <li>
                 <Link to={`feedback/week/${this.props.week - 1}`}>
-                  <button>❮ Previous week </button>
+                  <button className="week-button">❮ Previous week </button>
                 </Link>
               </li>
               <li id='currentWeek'> Week {this.props.week} </li>
               <li>
-                <button>
+                <button className="week-button">
                   <Link to={`feedback/week/${this.props.week + 1}`}> Next week ❯ </Link>
                 </button>
               </li>
               <li>
                 <Link to="feedback/summary">
-                  <button>Summary</button>
+                  <button className="week-button">Summary</button>
                 </Link>
               </li>
             </ul>

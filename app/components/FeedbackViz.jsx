@@ -97,7 +97,7 @@ class FeedbackViz extends React.Component {
         <div id="main">
           <div className="chartWrapper">
             <div id="radar">
-              <h4>Peer and Self Evaluations</h4>
+              <h3>Peer and Self Evaluations</h3>
               <BarChart
                 groupedBars
                 data={ratings}

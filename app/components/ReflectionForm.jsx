@@ -101,7 +101,7 @@ export default () =>
 
           <br />
           <li id="improvements" className="notranslate">
-            <label className="commentary">What is one thing you would like to improve upon next week?</label>
+            <label className="commentary">What is one thing you would like to improve upon or learn about for next week?</label>
             <div>
               <textarea
                 className="field textarea medium"
