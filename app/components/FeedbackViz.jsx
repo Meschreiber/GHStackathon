@@ -50,7 +50,7 @@ const ratings = [
 class FeedbackViz extends React.Component {
   constructor(props) {
     super(props)
-    //props should include week.num to say week number 
+    // props should include week.num to say week number 
     // props should have week.dates to say dates of the week
   }
 
@@ -93,7 +93,7 @@ class FeedbackViz extends React.Component {
 
     return (
       <div>
-        <Navbar week={4} />
+        <Navbar week={2} />
         <div id="main">
           <div className="chartWrapper">
             <div id="radar">
