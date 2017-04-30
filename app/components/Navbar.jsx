@@ -19,18 +19,18 @@ class Navbar extends React.Component {
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li>
-                <Link to={`feedback/week/${this.props.week - 1}`}>
-                  <button className="week-button">❮ Previous week </button>
+                <Link to={`/feedback/week/${+this.props.weekId - 1}`}>
+                  <button disabled={+this.props.weekId === 1} className="week-button">❮ Previous week </button>
                 </Link>
               </li>
               <li id='currentWeek'> {this.props.title} </li>
               <li>
-                <button className="week-button">
-                  <Link to={`feedback/week/${this.props.week + 1}`}> Next week ❯ </Link>
+                <button disabled={+this.props.weekId === 6} className="week-button">
+                  <Link to={`/feedback/week/${+this.props.weekId + 1}`}> Next week ❯ </Link>
                 </button>
               </li>
               <li>
-                <Link to="feedback/summary">
+                <Link to="/feedback/week/8">
                   <button className="week-button">Summary</button>
                 </Link>
               </li>

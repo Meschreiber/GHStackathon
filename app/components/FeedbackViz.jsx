@@ -89,7 +89,7 @@ export default (props) => {
   console.log('NAME ', data[weekId].name)
   return (
     <div>
-      <Navbar title={data[weekId].name} />
+      <Navbar weekId={props.params.weekId} title={data[weekId].name} />
       <div id="main">
         <div className="chartWrapper">
           <div id="radar">

@@ -25,7 +25,7 @@ const Viewbar = () =>
         <Link to="/form" activeClassName="active">Partner Feedback Form</Link>
       </li>
       <li>
-        <Link to="/feedback" activeClassName="active">Feedback Visualization</Link>
+        <Link to="/feedback/week/1" activeClassName="active">Feedback Visualization</Link>
       </li>
       <li>
         {/* WhoAmI takes a firebase auth API and renders either a
