@@ -4,12 +4,53 @@ import Navbar from './Navbar'
 import RadarChart from './Radar'
 import Comments from './Comments'
 
+import * as ReactD3 from 'react-d3-components'
+var BarChart = ReactD3.BarChart
+console.log('REACTD3', BarChart)
+
+var tooltipBar = function (x, y0, y) {
+  let characteristic = ''
+  switch (x) {
+    case 'C':
+      characteristic = 'communication'
+      break;
+    case 'N':
+      characteristic = 'plays nice'
+      break;
+    case 'P':
+      characteristic = 'prepared'
+      break;
+    case 'I':
+      characteristic = 'independent'
+      break;
+    case 'O':
+      characteristic = 'open'
+      break;
+
+    default:
+      break;
+  }
+  return characteristic + ": " + y;
+}
+
+const ratings = [
+  {
+    label: 'peer',
+    values: [{ x: 'C', y: 3.2 }, { x: 'N', y: 2.8 }, { x: 'P', y: 4.5 }, { x: 'I', y: 5 }, { x: 'O', y: 3.5 }]
+  },
+  {
+    label: 'self',
+    values: [{ x: 'C', y: 4 }, { x: 'N', y: 3 }, { x: 'P', y: 4 }, { x: 'I', y: 4 }, { x: 'O', y: 2 }]
+  }
+]
+
+
 /* -----------------    COMPONENT     ------------------ */
 
 class FeedbackViz extends React.Component {
   constructor(props) {
     super(props)
-    //props should include week.num to say week number 
+    // props should include week.num to say week number 
     // props should have week.dates to say dates of the week
   }
 
@@ -17,12 +58,12 @@ class FeedbackViz extends React.Component {
     var strengthComments = [
       {
         id: 1,
-        text: 'Kate really knows her stuff. She clearly read and re-read the pre-reading and took detailed notes during the lecture. She was also able to communicate her ideas clearly.',
+        text: 'Maria really knows her stuff. She clearly read and re-read the pre-reading and took detailed notes during the lecture. She was also able to communicate her ideas clearly.',
         author: 'Anonymous'
       },
       {
         id: 2,
-        text: 'Kate might be the most naturally gifted programmer in the cohort.',
+        text: 'Maria might be the most naturally gifted programmer in the cohort.',
         author: 'Jodie'
       },
       {
@@ -40,32 +81,46 @@ class FeedbackViz extends React.Component {
       },
       {
         id: 5,
-        text: 'For lack of a better way to say it, Kate can be difficult to work with. She insisted on driving AND navigating the entire time. I wish she had been open to some of my ideas',
+        text: 'For lack of a better way to say it, Maria can be difficult to work with. She insisted on driving AND navigating the entire time. I wish she had been open to some of my ideas',
         author: 'Anonymous'
       },
       {
         id: 6,
-        text: 'Nothing! Kate is perfect in each and every way.',
+        text: 'Nothing! Maria is perfect in each and every way.',
         author: 'Jodie'
       },
     ]
 
     return (
       <div>
-        <Navbar week={4} />
+        <Navbar week={2} />
         <div id="main">
-          <div id="radar">
-            <RadarChart />
+          <div className="chartWrapper">
+            <div id="radar">
+              <h4>Peer and Self Evaluations</h4>
+              <BarChart
+                groupedBars
+                data={ratings}
+                width={400}
+                height={300}
+                tooltipHtml={tooltipBar}
+                margin={{ top: 10, bottom: 50, left: 50, right: 10 }} />
+              <div id="legend">
+                <span id="peer">■ Peer</span>
+                <span id="self">■ Self</span>
+              </div>
+            </div>
+
           </div>
           <div />
           <div id="allComments">
-            <h1>Strengths and Contributions</h1>
-            <div className="comments" id="strengths">
+            <h3>Strengths and Contributions</h3>
+            <div className="comments">
               <Comments comments={strengthComments} />
             </div>
             <br />
-            <h1>Areas for improvement</h1>
-            <div className="comments" id="strengths">
+            <h3>Areas for improvement</h3>
+            <div className="comments">
               <Comments comments={improvementComments} />
             </div>
           </div>

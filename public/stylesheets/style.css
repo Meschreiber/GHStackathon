@@ -8,12 +8,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 17px 10px 15px 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center !important;
 }
 
 h1 {
-  text-align: center;
   border-bottom: 1px dotted #CCCCCC;
 }
 
@@ -52,9 +52,19 @@ button {
     border: 1px solid black;
 }
 
+.chartWrapper {
+  position: relative;
+}
 #radar {
   float: left;
   width: 38%;
+  height: 400px;
+  text-align: center;
+  vertical-align: middle;
+  overflow-x: scroll;
+  margin-top: 8%;
+  margin-bottom: 8%;
+
 }
 
 #allComments{
@@ -73,7 +83,7 @@ button {
     list-style-type: none;
     margin: 0;
     padding: 0;
-      text-align: center !important;
+    text-align: center !important;
 }
 
 .navbar-nav li {
@@ -100,6 +110,19 @@ button {
       border-right: 0.8em solid transparent;
       border-left: 0.8em solid transparent; }
 
+/*-------Bar chart legend--------*/
+span#peer  {
+  color: steelblue;
+  font-size: 1em;
+  float: left;
+  margin-left: 33%;
+}
+span#self  {
+  color: lightsteelblue;
+  font-size: 1em;
+  float: right;
+  margin-right: 33%;
+}
 
 /*-------Comments--------*/
 
