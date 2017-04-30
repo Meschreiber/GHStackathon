@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import Navbar from './Navbar'
 // import RadarChart from './Radar'
 import Comments from './Comments'
+import { data, summary } from './data'
 
 import * as ReactD3 from 'react-d3-components'
 var BarChart = ReactD3.BarChart
@@ -80,7 +81,7 @@ var improvementComments = [
   },
 ]
 
-
+console.log(data)
 /* -----------------    COMPONENT     ------------------ */
 
 class FeedbackViz extends React.Component {
