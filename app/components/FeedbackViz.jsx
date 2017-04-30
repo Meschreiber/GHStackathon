@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import Navbar from './Navbar'
-import RadarChart from './Radar'
+// import RadarChart from './Radar'
 import Comments from './Comments'
 
 import * as ReactD3 from 'react-d3-components'
