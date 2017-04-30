@@ -9,6 +9,12 @@ import * as ReactD3 from 'react-d3-components'
 var BarChart = ReactD3.BarChart
 console.log('REACTD3', BarChart)
 
+
+import firebase from 'APP/fire'
+var database = firebase.database()
+firebase.database().ref('feedback/').set(data)
+
+
 var tooltipBar = function(x, y0, y) {
   let characteristic = ''
   switch (x) {
