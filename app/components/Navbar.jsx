@@ -25,7 +25,7 @@ class Navbar extends React.Component {
               </li>
               <li id='currentWeek'> {this.props.title} </li>
               <li>
-                <button disabled={+this.props.weekId === 6} className="week-button">
+                <button disabled={+this.props.weekId >= 6} className="week-button">
                   <Link to={`/feedback/week/${+this.props.weekId + 1}`}> Next week ❯ </Link>
                 </button>
               </li>

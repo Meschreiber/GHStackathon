@@ -86,10 +86,11 @@ console.log('DATA', data)
 
 export default (props) => {
   const weekId = props.params.weekId - 1
-  console.log('NAME ', data[weekId].name)
+  const theWeek = weekId === data.length ? summary : data[weekId]
+  console.log('weekId', weekId, 'theWeek', theWeek)
   return (
     <div>
-      <Navbar weekId={props.params.weekId} title={data[weekId].name} />
+      <Navbar weekId={props.params.weekId} title={theWeek.name} />
       <div id="main">
         <div className="chartWrapper">
           <div id="radar">
@@ -97,7 +98,7 @@ export default (props) => {
             <br />
             <BarChart
               groupedBars
-              data={ratings}
+              data={theWeek.ratings}
               width={400}
               height={300}
               tooltipHtml={tooltipBar}
@@ -113,12 +114,12 @@ export default (props) => {
         <div id="allComments">
           <h3>Strengths and Contributions</h3>
           <div className="comments">
-            <Comments comments={strengthComments} />
+            <Comments comments={theWeek.strengthComments} />
           </div>
           <br />
           <h3>Areas for improvement</h3>
           <div className="comments">
-            <Comments comments={improvementComments} />
+            <Comments comments={theWeek.improvementComments} />
           </div>
         </div>
       </div>
