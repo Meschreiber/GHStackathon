@@ -106,7 +106,7 @@ class FeedbackViz extends React.Component {
                 tooltipHtml={tooltipBar}
                 margin={{ top: 10, bottom: 50, left: 50, right: 10 }} />
               <div id="legend">
-                <span id="peer">■ Peer</span>
+                <span id="peer">■ Peer Averages</span>
                 <span id="self">■ Self</span>
               </div>
             </div>
