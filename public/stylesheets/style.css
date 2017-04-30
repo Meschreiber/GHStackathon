@@ -261,6 +261,7 @@ textarea {
   display: inline;
   color: white !important;
   text-transform: none;
+  font-size: .75em !important;
 }
 
 .viewbar ul {
@@ -279,6 +280,6 @@ textarea {
   margin-left: 0px;
 }*/
 
-/*.googlelogin .logout {
-  background-color: yellowgreen !important;
-}*/
+.googlelogin .logout {
+  font-size: .75em; !important;
+}
