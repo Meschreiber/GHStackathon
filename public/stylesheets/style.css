@@ -29,6 +29,9 @@ a:visited {
   color: white;
   }  
 
+p {
+  display: inline;
+}
 
 button {
     color: #fff;
@@ -52,19 +55,19 @@ button {
     border: 1px solid black;
 }
 
-.outer {
-  height: 100%;
+.chartWrapper {
+  position: relative;
 }
 #radar {
   float: left;
   width: 38%;
+  height: 400px;
   text-align: center;
-      vertical-align: middle;
-}
+  vertical-align: middle;
+  overflow-x: scroll;
+  margin-top: 8%;
+  margin-bottom: 8%;
 
-svg {
-  overflow-x: scroll; 
-  overflow-y: scroll; 
 }
 
 #allComments{
@@ -110,6 +113,19 @@ svg {
       border-right: 0.8em solid transparent;
       border-left: 0.8em solid transparent; }
 
+/*-------Bar chart legend--------*/
+span#peer  {
+  color: steelblue;
+  font-size: 1em;
+  float: left;
+  margin-left: 33%;
+}
+span#self  {
+  color: lightsteelblue;
+  font-size: 1em;
+  float: right;
+  margin-right: 33%;
+}
 
 /*-------Comments--------*/
 

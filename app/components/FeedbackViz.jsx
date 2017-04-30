@@ -36,7 +36,7 @@ var tooltipBar = function (x, y0, y) {
 const ratings = [
   {
     label: 'peer',
-    values: [{ x: 'C', y: 3 }, { x: 'N', y: 2.5 }, { x: 'P', y: 4.5 }, { x: 'I', y: 5 }, { x: 'O', y: 3.5 }]
+    values: [{ x: 'C', y: 3.2 }, { x: 'N', y: 2.8 }, { x: 'P', y: 4.5 }, { x: 'I', y: 5 }, { x: 'O', y: 3.5 }]
   },
   {
     label: 'self',
@@ -58,12 +58,12 @@ class FeedbackViz extends React.Component {
     var strengthComments = [
       {
         id: 1,
-        text: 'Kate really knows her stuff. She clearly read and re-read the pre-reading and took detailed notes during the lecture. She was also able to communicate her ideas clearly.',
+        text: 'Maria really knows her stuff. She clearly read and re-read the pre-reading and took detailed notes during the lecture. She was also able to communicate her ideas clearly.',
         author: 'Anonymous'
       },
       {
         id: 2,
-        text: 'Kate might be the most naturally gifted programmer in the cohort.',
+        text: 'Maria might be the most naturally gifted programmer in the cohort.',
         author: 'Jodie'
       },
       {
@@ -81,12 +81,12 @@ class FeedbackViz extends React.Component {
       },
       {
         id: 5,
-        text: 'For lack of a better way to say it, Kate can be difficult to work with. She insisted on driving AND navigating the entire time. I wish she had been open to some of my ideas',
+        text: 'For lack of a better way to say it, Maria can be difficult to work with. She insisted on driving AND navigating the entire time. I wish she had been open to some of my ideas',
         author: 'Anonymous'
       },
       {
         id: 6,
-        text: 'Nothing! Kate is perfect in each and every way.',
+        text: 'Nothing! Maria is perfect in each and every way.',
         author: 'Jodie'
       },
     ]
@@ -95,7 +95,7 @@ class FeedbackViz extends React.Component {
       <div>
         <Navbar week={4} />
         <div id="main">
-          <div className="outer">
+          <div className="chartWrapper">
             <div id="radar">
               <h4>Peer and Self Evaluations</h4>
               <BarChart
@@ -105,7 +105,12 @@ class FeedbackViz extends React.Component {
                 height={300}
                 tooltipHtml={tooltipBar}
                 margin={{ top: 10, bottom: 50, left: 50, right: 10 }} />
+              <div id="legend">
+                <span id="peer">■ Peer</span>
+                <span id="self">■ Self</span>
+              </div>
             </div>
+
           </div>
           <div />
           <div id="allComments">
