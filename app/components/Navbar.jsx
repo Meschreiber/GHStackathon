@@ -23,7 +23,7 @@ class Navbar extends React.Component {
                   <button className="week-button">❮ Previous week </button>
                 </Link>
               </li>
-              <li id='currentWeek'> Week {this.props.week} </li>
+              <li id='currentWeek'> {this.props.title} </li>
               <li>
                 <button className="week-button">
                   <Link to={`feedback/week/${this.props.week + 1}`}> Next week ❯ </Link>

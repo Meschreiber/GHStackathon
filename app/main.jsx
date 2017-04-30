@@ -36,7 +36,7 @@ render(
   <Router history={browserHistory}>
     <Route path="/" component={App} >
       <IndexRoute component={Form} />
-      <Route path="feedback" component={FeedbackViz} />
+      <Route path="feedback/week/:weekId" component={FeedbackViz} />
       <Route path="form" component={Form} />
       <Route path="reflection" component={ReflectionForm} />
     </Route>
