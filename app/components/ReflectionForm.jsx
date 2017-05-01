@@ -23,15 +23,13 @@ export default class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      reflection: {
-        communication: 0,
-        playsNice: 0,
-        prepared: 0,
-        open: 0,
-        independent: 0,
-        strength: '',
-        improvement: ''
-      }
+      communication: 0,
+      playsNice: 0,
+      prepared: 0,
+      open: 0,
+      independent: 0,
+      strength: '',
+      improvement: ''
     }
   }
 
@@ -59,7 +57,7 @@ export default class extends React.Component {
 
     // Whenever our ref's value changes, set {value} on our state.
     const listener = fireRef.on('value', snapshot => {
-      this.setState({ reflection: snapshot.val() })
+      this.setState(snapshot.val())
       console.log('THE LISTENER LISTENED ', this.state)
     })
 
@@ -71,35 +69,35 @@ export default class extends React.Component {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'communication')
-    this.setState({ reflection: { ...this.state.reflection, communication: rating } })
+    this.setState({ communication: rating })
   }
 
   nStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'playsNice')
-    this.setState({ reflection: { ...this.state.reflection, playsNice: rating } })
+    this.setState({ playsNice: rating })
   }
 
   pStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'prepared')
-    this.setState({ reflection: { ...this.state.reflection, prepared: rating } })
+    this.setState({ prepared: rating })
   }
 
   iStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'independent')
-    this.setState({ reflection: { ...this.state.reflection, independent: rating } })
+    this.setState({ independent: rating })
   }
 
   oStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'open')
-    this.setState({ reflection: { ...this.state.reflection, open: rating } })
+    this.setState({ open: rating })
   }
 
   setStars = (num, className) => {
@@ -118,11 +116,11 @@ export default class extends React.Component {
   }
 
   writeStrength = (evt) => {
-    this.setState({ reflection: { ...this.state.reflection, strength: evt.target.value } })
+    this.setState({ strength: evt.target.value })
   }
 
   writeImprovement = (evt) => {
-    this.setState({ reflection: { ...this.state.reflection, improvement: evt.target.value } })
+    this.setState({ improvement: evt.target.value })
   }
 
   postNewReflection = (evt) => {
@@ -146,7 +144,7 @@ export default class extends React.Component {
   }
 
   render() {
-    const { reflection } = this.state
+    const reflection = this.state
     // console.log('fireRef', this.props.fireRef)
     console.log('Beginning state', this.state)
     return (
