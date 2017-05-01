@@ -57,7 +57,7 @@ export default class extends React.Component {
               <fieldset>
                 <legend >General Communication Skills</legend>
                 <div className="field rating clearfix">
-                  <input name="communication" type="hidden" />
+                  <input type="hidden" />
                   <span className="star clickable" value="1" >★</span>
                   <span className="star clickable" value="2" >★</span>
                   <span className="star clickable" value="3" >★</span>
@@ -71,7 +71,7 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Plays Nice with Others</legend>
                 <div className="field rating clearfix">
-                  <input name="nice" type="hidden" />
+                  <input type="hidden" />
                   <span className="star clickable" value="1" >★</span>
                   <span className="star clickable" value="2" >★</span>
                   <span className="star clickable" value="3" >★</span>
@@ -86,7 +86,7 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Open to New Ideas</legend>
                 <div className="field rating clearfix">
-                  <input name="open" type="hidden" />
+                  <input type="hidden" />
                   <span className="star clickable" value="1" >★</span>
                   <span className="star clickable" value="2" >★</span>
                   <span className="star clickable" value="3" >★</span>
@@ -100,7 +100,7 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Organized and Prepared</legend>
                 <div className="field rating clearfix">
-                  <input name="organized" type="hidden" />
+                  <input type="hidden" />
                   <span className="star clickable" value="1" >★</span>
                   <span className="star clickable" value="2" >★</span>
                   <span className="star clickable" value="3" >★</span>
@@ -114,7 +114,7 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Driven and Independent</legend>
                 <div className="field rating clearfix">
-                  <input name="driven" type="hidden" />
+                  <input type="hidden" />
                   <span className="star clickable" value="1" >★</span>
                   <span className="star clickable" value="2" >★</span>
                   <span className="star clickable" value="3" >★</span>
@@ -139,13 +139,13 @@ export default class extends React.Component {
             <p>Would you like to share this feedback (strengths) anonymously or non-anonymously?</p>
             <div>
               <label>
-                <input type="radio" name="strength-anon" />Anonymously
+                <input type="radio"/>Anonymously
                 </label>
               <br />
             </div>
             <div>
               <label>
-                <input type="radio" name="strength-anon" />Put my name on it!
+                <input type="radio"/>Put my name on it!
                 </label>
               <br />
             </div>
@@ -179,20 +179,20 @@ export default class extends React.Component {
               <p >Please tell us if you would like to pair with Allison Alexander in the future. We will keep this confidential.</p>
               <div>
                 <label>
-                  <input type="radio" name="pair-rating" />Yes, please!
+                  <input type="radio" />Yes, please!
             </label>
                 <br />
               </div>
               <div>
                 <label>
-                  <input type="radio" name="pair-rating" />
+                  <input type="radio" />
                   I don't mind either way.
             </label>
                 <br />
               </div>
               <div>
                 <label>
-                  <input type="radio" name="pair-rating" />I'd prefer not to, thanks.</label>
+                  <input type="radio" />I'd prefer not to, thanks.</label>
                 <br />
               </div>
               <br />

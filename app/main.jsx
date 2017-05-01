@@ -40,7 +40,7 @@ render(
     <Route path="/" component={App} >
       <IndexRoute component={Form} />
       <Route path="feedback/week/:weekId" component={FeedbackViz} />
-      <Route path="form/:name" component={Form} />
+      <Route path="form/" component={Form} />
       <Route path="reflection/:name" component={ReflectionFormIndex} />
     </Route>
   </Router>,

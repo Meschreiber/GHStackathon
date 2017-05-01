@@ -1,6 +1,41 @@
 import React from 'react'
+import firebase from 'APP/fire'
+var database = firebase.database()
+
+
+// const reflections = {
+//   author: 'mschreiber',
+//   communication: 4,
+//   playsNice: 4,
+//   prepared: 4,
+//   open: 4,
+//   independent: 3,
+//   strength: 'I try to always listen to my partner\'s ideas and ask their opinions.',
+//   improvement: 'I sometimes ask for help to early'
+// }
+
+// firebase.database().ref('reflections/').set(reflections)
+
+
 
 export default class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      reflection: {
+        author: 'mschreiber',
+        communication: 0,
+        playsNice: 0,
+        prepared: 0,
+        open: 0,
+        independent: 0,
+        strength: '',
+        improvement: ''
+      }
+    }
+  }
+
+
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
     // we were given.
@@ -37,12 +72,41 @@ export default class extends React.Component {
   //
   // in the constructor. Incidentally, this means that write
   // is always bound to this.
-  write = event => this.props.fireRef &&
-    this.props.fireRef.set(event.target.value)
-  // in your own case, push on submit to add another entry
+  postNewReflection = () => {
+    // A post entry --> will eventually want a uid to include in the part of the db for that user
+    var postData = this.state.reflection
+    // Get a key for a new Post
+    var newPostKey = this.props.fireRef.child('reflections').push().newPostKey
+
+    // Write a new post's data simultaneously in the reflections list
+    var updates = {}
+    updates['/reflections/' + newPostKey] = postData
+
+    // Include the line below when there are multiple users
+    // updates['/user-posts/' + uid + '/' + newPostKey] = postData
+    return this.props.fireRef.update(updates)
+  }
+
+  cStarClick = (evt) => {
+    const rating = evt.target.getAttribute('value')
+    var newState = Object.assign(this.state, {reflection: {communication: rating}})
+    this.setState(newState)
+    console.log('CURRENT STATE', newState)
+  }
+
+  writeStrength = (evt) => {
+    var newState = Object.assign(this.state, {reflection: { strength: evt.target.value }})
+    this.setState(newState)
+  }
+
+  writeImprovement = (evt) => {
+    var newState = Object.assign(this.state, {reflection: { improvement: evt.target.value }})
+    this.setState(newState)
+  }
 
   render() {
     const { value } = this.state || {}
+    // console.log('VALUE', value, 'fireRef', this.props.fireRef)
     return (
       <div>
 
@@ -52,19 +116,19 @@ export default class extends React.Component {
             <p>Please use this opportunity reflect on how you contributed to your team/pairing this week.</p>
           </div>
         </header>
-        <form>
+        <form onSubmit={this.postNewReflection}>
           <ul id="form">
             <p> Rate yourself on the following skills and qualities from 0 to 5.</p>
             <li id="communication" className="starRating">
               <fieldset>
                 <legend >General Communication Skills</legend>
                 <div className="field rating clearfix">
-                  <input name="communication" type="hidden" />
-                  <span className="star clickable" value="1" >★</span>
-                  <span className="star clickable" value="2" >★</span>
-                  <span className="star clickable" value="3" >★</span>
-                  <span className="star clickable" value="4" >★</span>
-                  <span className="star clickable" value="5" >★</span>
+                  <input type="hidden" />
+                  <span onClick={this.cStarClick} className="star clickable" value="1" >★</span>
+                  <span onClick={this.cstarClick} className="star clickable" value="2" >★</span>
+                  <span onClick={this.cstarClick} className="star clickable" value="3" >★</span>
+                  <span onClick={this.cstarClick} className="star clickable" value="4" >★</span>
+                  <span onClick={this.cstarClick} className="star clickable" value="5" >★</span>
                 </div>
               </fieldset>
             </li>
@@ -73,12 +137,12 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Plays Nice with Others</legend>
                 <div className="field rating clearfix">
-                  <input name="nice" type="hidden" />
-                  <span className="star clickable" value="1" >★</span>
-                  <span className="star clickable" value="2" >★</span>
-                  <span className="star clickable" value="3" >★</span>
-                  <span className="star clickable" value="4" >★</span>
-                  <span className="star clickable" value="5" >★</span>
+                  <input type="hidden" />
+                  <span onClick={this.starClick} className="star clickable" value="1" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="2" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="3" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="4" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="5" >★</span>
 
                 </div>
               </fieldset>
@@ -88,12 +152,12 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Open to New Ideas</legend>
                 <div className="field rating clearfix">
-                  <input name="open" type="hidden" />
-                  <span className="star clickable" value="1" >★</span>
-                  <span className="star clickable" value="2" >★</span>
-                  <span className="star clickable" value="3" >★</span>
-                  <span className="star clickable" value="4" >★</span>
-                  <span className="star clickable" value="5" >★</span>
+                  <input type="hidden" />
+                  <span onClick={this.starClick} className="star clickable" value="1" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="2" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="3" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="4" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="5" >★</span>
                 </div>
               </fieldset>
             </li>
@@ -102,12 +166,12 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Organized and Prepared</legend>
                 <div className="field rating clearfix">
-                  <input name="organized" type="hidden" />
-                  <span className="star clickable" value="1" >★</span>
-                  <span className="star clickable" value="2" >★</span>
-                  <span className="star clickable" value="3" >★</span>
-                  <span className="star clickable" value="4" >★</span>
-                  <span className="star clickable" value="5" >★</span>
+                  <input type="hidden" />
+                  <span onClick={this.starClick} className="star clickable" value="1" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="2" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="3" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="4" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="5" >★</span>
                 </div>
               </fieldset>
             </li>
@@ -116,12 +180,12 @@ export default class extends React.Component {
               <fieldset>
                 <legend >Driven and Independent</legend>
                 <div className="field rating clearfix">
-                  <input name="driven" type="hidden" />
-                  <span className="star clickable" value="1" >★</span>
-                  <span className="star clickable" value="2" >★</span>
-                  <span className="star clickable" value="3" >★</span>
-                  <span className="star clickable" value="4" >★</span>
-                  <span className="star clickable" value="5" >★</span>
+                  <input type="hidden" />
+                  <span onClick={this.starClick} className="star clickable" value="1" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="2" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="3" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="4" >★</span>
+                  <span onClick={this.starClick} className="star clickable" value="5" >★</span>
                 </div>
               </fieldset>
             </li>
@@ -131,9 +195,9 @@ export default class extends React.Component {
               <div>
                 <textarea
                   className="field textarea medium"
-                  spellcheck="true"
                   rows="10"
                   cols="150"
+                  onChange={this.writeStrength}
                 />
               </div>
             </li>
@@ -143,9 +207,9 @@ export default class extends React.Component {
               <div>
                 <textarea
                   className="field textarea medium"
-                  spellcheck="true"
                   rows="10"
                   cols="150"
+                  onChange={this.writeImprovement}
                 />
               </div>
             </li>

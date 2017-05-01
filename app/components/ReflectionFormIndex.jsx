@@ -12,7 +12,6 @@ import ReflectionForm from './ReflectionForm'
 // shows the form along with that title.
 export default ({params: {name}}) =>
   <div>
-    <h1>{name}</h1>
     {/* Here, we're passing in a Firebase reference to
         /scratchpads/$scratchpadTitle. This is where the scratchpad is
         stored in Firebase. Each scratchpad is just a string that the
