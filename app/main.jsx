@@ -38,7 +38,7 @@ const App = ({ children }) =>
 render(
   <Router history={browserHistory}>
     <Route path="/" component={App} >
-      <IndexRoute component={FeedbackViz} />
+      <IndexRoute path="/reflection/:name" component={ReflectionFormIndex} />
       <Route path="/feedback/week/:weekId" component={FeedbackViz} />
       <Route path="/form/:name" component={FormIndex} />
       <Route path="/reflection/:name" component={ReflectionFormIndex} />

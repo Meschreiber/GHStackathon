@@ -225,8 +225,9 @@ export default class extends React.Component {
                 <textarea
                   className="field textarea medium"
                   rows="10"
-                  cols="150" />
+                  cols="150" 
                 onChange={this.writeImprovement}
+                />
               </div>
 
               <p >Would you like to share this feedback (areas of improvement) anonymously or non-anonymously?</p>
