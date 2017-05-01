@@ -5,7 +5,6 @@ var database = firebase.database()
 
 // const reflections = {
 //   0: {
-//     author: 'mschreiber',
 //     communication: 4,
 //     playsNice: 4,
 //     prepared: 4,
@@ -25,7 +24,6 @@ export default class extends React.Component {
     super(props)
     this.state = {
       reflection: {
-        author: 'mschreiber',
         communication: 0,
         playsNice: 0,
         prepared: 0,
@@ -60,11 +58,11 @@ export default class extends React.Component {
     if (this.unsubscribe) this.unsubscribe()
 
     // Whenever our ref's value changes, set {value} on our state.
-    const listener = fireRef.on('value', snapshot =>
-      this.setState({ value: snapshot.val() }))
-
+    const listener = fireRef.on('reflection', snapshot =>
+      this.setState({ reflection: snapshot.val() }))
+    console.log('THE LISTENER LISTENED ', this.state)
     // Set unsubscribe to be a function that detaches the listener.
-    this.unsubscribe = () => fireRef.off('value', listener)
+    this.unsubscribe = () => fireRef.off('reflection', listener)
   }
 
   cStarClick = (evt) => {
@@ -134,19 +132,18 @@ export default class extends React.Component {
     // A post entry --> will eventually want a uid to include in the part of the db for that user
     var postData = {date: new Date(), reflection: this.state.reflection}
     // Get a key for a new Post
-    var newPostKey = this.props.fireRef.child('reflections').push().newPostKey
+    var newPostKey = this.props.fireRef.push().key
 
     // Write a new post's data simultaneously in the reflections list
     var updates = {}
-    updates['/reflections/' + newPostKey] = postData
-
-    // Include the line below when there are multiple users
+    updates[newPostKey] = postData
+    // Include the line below when there are multiple users?
     // updates['/user-posts/' + uid + '/' + newPostKey] = postData
     return this.props.fireRef.update(updates)
   }
 
   render() {
-    const { value } = this.state || {}
+    const { reflection } = this.state || {}
     // console.log('VALUE', value, 'fireRef', this.props.fireRef)
     return (
       <div>
@@ -239,6 +236,7 @@ export default class extends React.Component {
                   rows="10"
                   cols="150"
                   onChange={this.writeStrength}
+                  value={reflection.strength}
                 />
               </div>
             </li>
@@ -251,6 +249,7 @@ export default class extends React.Component {
                   rows="10"
                   cols="150"
                   onChange={this.writeImprovement}
+                  value={reflection.improvement}
                 />
               </div>
             </li>
