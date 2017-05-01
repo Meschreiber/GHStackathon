@@ -9,9 +9,17 @@ import firebase from 'APP/fire'
 // Get the auth API from Firebase.
 const auth = firebase.auth()
 
+export const email = user => {
+  if (!user) return 'Nobody'
+  if (user.isAnonymous) return 'Anonymous'
+  return user.email
+}
+
 // Ensure that we have (almost) always have a user ID, by creating
 // an anonymous user if nobody is signed in.
 auth.onAuthStateChanged(user => user || auth.signInAnonymously())
+var user = firebase.auth().currentUser
+console.log('CURRENT USER EMAIL:', email(user))
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -19,10 +27,10 @@ const Viewbar = () =>
   <div>
     <ul className="viewbar">
       <li>
-        <Link to="/reflection" activeClassName="active">Self Reflection Form</Link>
+        <Link to="/reflection/mschreiber" activeClassName="active">Self Reflection Form</Link>
       </li>
       <li>
-        <Link to="/form" activeClassName="active">Partner Feedback Form</Link>
+        <Link to="/form/aalexander" activeClassName="active">Partner Feedback Form</Link>
       </li>
       <li>
         <Link to="/feedback/week/1" activeClassName="active">Feedback Visualization</Link>
