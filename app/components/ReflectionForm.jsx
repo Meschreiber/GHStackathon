@@ -67,71 +67,39 @@ export default class extends React.Component {
     this.unsubscribe = () => fireRef.off('value', listener)
   }
 
-  // Write is defined using the class property syntax.
-  // This is roughly equivalent to saying,
-  //
-  //    this.write = event => (etc...)
-  //
-  // in the constructor. Incidentally, this means that write
-  // is always bound to this.
-  postNewReflection = () => {
-    // A post entry --> will eventually want a uid to include in the part of the db for that user
-    var postData = this.state.reflection
-    // Get a key for a new Post
-    var newPostKey = this.props.fireRef.child('reflections').push().newPostKey
-
-    // Write a new post's data simultaneously in the reflections list
-    var updates = {}
-    updates['/reflections/' + newPostKey] = postData
-
-    // Include the line below when there are multiple users
-    // updates['/user-posts/' + uid + '/' + newPostKey] = postData
-    return this.props.fireRef.update(updates)
-  }
-
   cStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'communication')
-    var newState = Object.assign(this.state, { reflection: { communication: rating } })
-    this.setState(newState)
-    console.log('CURRENT STATE', newState)
+    this.setState({ reflection: { ...this.state.reflection, communication: rating } })
   }
 
   nStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'playsNice')
-    var newState = Object.assign(this.state, { reflection: { playsNice: rating } })
-    this.setState(newState)
-    console.log('CURRENT STATE', newState)
+    this.setState({ reflection: { ...this.state.reflection, playsNice: rating } })
   }
 
   pStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'prepared')
-    var newState = Object.assign(this.state, { reflection: { prepared: rating } })
-    this.setState(newState)
-    console.log('CURRENT STATE', newState)
+    this.setState({ reflection: { ...this.state.reflection, prepared: rating } })
   }
 
   iStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'independent')
-    var newState = Object.assign(this.state, { reflection: { independent: rating } })
-    this.setState(newState)
-    console.log('CURRENT STATE', newState)
+    this.setState({ reflection: { ...this.state.reflection, independent: rating } })
   }
 
   oStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
     // evt.target.setAttribute('class', 'clicked')
     this.setStars(rating, 'open')
-    var newState = Object.assign(this.state, { reflection: { open: rating } })
-    this.setState(newState)
-    console.log('CURRENT STATE', newState)
+    this.setState({ reflection: { ...this.state.reflection, open: rating } })
   }
 
   setStars = (num, className) => {
@@ -150,13 +118,31 @@ export default class extends React.Component {
   }
 
   writeStrength = (evt) => {
-    var newState = Object.assign(this.state, { reflection: { strength: evt.target.value } })
-    this.setState(newState)
+    this.setState({ reflection: { ...this.state.reflection, strength: evt.target.value } })
   }
 
   writeImprovement = (evt) => {
-    var newState = Object.assign(this.state, { reflection: { improvement: evt.target.value } })
-    this.setState(newState)
+    this.setState({ reflection: { ...this.state.reflection, improvement: evt.target.value } })
+  }
+
+  postNewReflection = (evt) => {
+    evt.preventDefault()
+    window.alert('Thank you for submitting your reflection. It has been received.  You may edit it until Sunday 11:59 PM')
+    var submitButton = document.getElementsByClassName('btn btn-primary mt1')
+    // For some reason this is not changing the text ...
+    submitButton.innerHTML = 'Edit'
+    // A post entry --> will eventually want a uid to include in the part of the db for that user
+    var postData = {date: new Date(), reflection: this.state.reflection}
+    // Get a key for a new Post
+    var newPostKey = this.props.fireRef.child('reflections').push().newPostKey
+
+    // Write a new post's data simultaneously in the reflections list
+    var updates = {}
+    updates['/reflections/' + newPostKey] = postData
+
+    // Include the line below when there are multiple users
+    // updates['/user-posts/' + uid + '/' + newPostKey] = postData
+    return this.props.fireRef.update(updates)
   }
 
   render() {
