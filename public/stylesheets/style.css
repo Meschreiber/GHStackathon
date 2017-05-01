@@ -201,8 +201,9 @@ fieldset {
 }
 
 .rating .clicked {
-    /* color: #FFD954; */
+     color: #FFD954; 
 }
+
 li span {
     font-family: inherit;
     /*color: #444444;*/
