@@ -3,25 +3,24 @@ import firebase from 'APP/fire'
 var database = firebase.database()
 
 
-// const reflections = {
-//   0: {
-//     communication: 4,
-//     playsNice: 4,
-//     prepared: 4,
-//     open: 4,
-//     independent: 3,
-//     strength: 'I try to always listen to my partner\'s ideas and ask their opinions.',
-//     improvement: 'I sometimes ask for help to early'
-//   }
-// }
+const reflections = {
+  communication: 0,
+  playsNice: 0,
+  prepared: 0,
+  open: 0,
+  independent: 0,
+  strength: '',
+  improvement: ''
+}
 
-// firebase.database().ref('reflections/').set(reflections)
+
 
 
 
 export default class extends React.Component {
   constructor(props) {
     super(props)
+    // this.props.fireRef.set(reflections)
     this.state = {
       communication: 0,
       playsNice: 0,
@@ -164,11 +163,11 @@ export default class extends React.Component {
                 <legend >General Communication Skills</legend>
                 <div className="field rating clearfix">
                   <input type="hidden" />
-                  <span onClick={this.cStarClick} className="communication star clickable" value="1" >★</span>
-                  <span onClick={this.cStarClick} className="communication star clickable" value="2" >★</span>
-                  <span onClick={this.cStarClick} className="communication star clickable" value="3" >★</span>
-                  <span onClick={this.cStarClick} className="communication star clickable" value="4" >★</span>
-                  <span onClick={this.cStarClick} className="communication star clickable" value="5" >★</span>
+                  <span onClick={this.cStarClick} className={reflection.communication >= 1 ? "communication star clicked" : "communication star clickable" } value="1" >★</span>
+                  <span onClick={this.cStarClick} className={reflection.communication >= 2 ? "communication star clicked" : "communication star clickable" } value="2" >★</span>
+                  <span onClick={this.cStarClick} className={reflection.communication >= 3 ? "communication star clicked" : "communication star clickable" } value="3" >★</span>
+                  <span onClick={this.cStarClick} className={reflection.communication >= 4 ? "communication star clicked" : "communication star clickable" } value="4" >★</span>
+                  <span onClick={this.cStarClick} className={reflection.communication >= 5 ? "communication star clicked" : "communication star clickable" } value="5" >★</span>
                 </div>
               </fieldset>
             </li>
@@ -178,11 +177,11 @@ export default class extends React.Component {
                 <legend >Plays Nice with Others</legend>
                 <div className="field rating clearfix">
                   <input type="hidden" />
-                  <span onClick={this.nStarClick} className="playsNice star clickable" value="1" >★</span>
-                  <span onClick={this.nStarClick} className="playsNice star clickable" value="2" >★</span>
-                  <span onClick={this.nStarClick} className="playsNice star clickable" value="3" >★</span>
-                  <span onClick={this.nStarClick} className="playsNice star clickable" value="4" >★</span>
-                  <span onClick={this.nStarClick} className="playsNice star clickable" value="5" >★</span>
+                  <span onClick={this.nStarClick} className={reflection.playsNice >= 1 ? "playsNice star clicked" : "playsNice star clickable" } value="1" >★</span>
+                  <span onClick={this.nStarClick} className={reflection.playsNice >= 2 ? "playsNice star clicked" : "playsNice star clickable" } value="2" >★</span>
+                  <span onClick={this.nStarClick} className={reflection.playsNice >= 3 ? "playsNice star clicked" : "playsNice star clickable" } value="3" >★</span>
+                  <span onClick={this.nStarClick} className={reflection.playsNice >= 4 ? "playsNice star clicked" : "playsNice star clickable" } value="4" >★</span>
+                  <span onClick={this.nStarClick} className={reflection.playsNice >= 5 ? "playsNice star clicked" : "playsNice star clickable" } value="5" >★</span>
 
                 </div>
               </fieldset>
@@ -193,11 +192,11 @@ export default class extends React.Component {
                 <legend >Open to New Ideas</legend>
                 <div className="field rating clearfix">
                   <input type="hidden" />
-                  <span onClick={this.oStarClick} className="open star clickable" value="1" >★</span>
-                  <span onClick={this.oStarClick} className="open star clickable" value="2" >★</span>
-                  <span onClick={this.oStarClick} className="open star clickable" value="3" >★</span>
-                  <span onClick={this.oStarClick} className="open star clickable" value="4" >★</span>
-                  <span onClick={this.oStarClick} className="open star clickable" value="5" >★</span>
+                  <span onClick={this.oStarClick} className={reflection.open >= 1 ? "open star clicked" : "open star clickable" } value="1" >★</span>
+                  <span onClick={this.oStarClick} className={reflection.open >= 2 ? "open star clicked" : "open star clickable" } value="2" >★</span>
+                  <span onClick={this.oStarClick} className={reflection.open >= 3 ? "open star clicked" : "open star clickable" } value="3" >★</span>
+                  <span onClick={this.oStarClick} className={reflection.open >= 4 ? "open star clicked" : "open star clickable" } value="4" >★</span>
+                  <span onClick={this.oStarClick} className={reflection.open >= 5 ? "open star clicked" : "open star clickable" } value="5" >★</span>
                 </div>
               </fieldset>
             </li>
@@ -207,11 +206,11 @@ export default class extends React.Component {
                 <legend >Prepared and Organized</legend>
                 <div className="field rating clearfix">
                   <input type="hidden" />
-                  <span onClick={this.pStarClick} className="prepared star clickable" value="1" >★</span>
-                  <span onClick={this.pStarClick} className="prepared star clickable" value="2" >★</span>
-                  <span onClick={this.pStarClick} className="prepared star clickable" value="3" >★</span>
-                  <span onClick={this.pStarClick} className="prepared star clickable" value="4" >★</span>
-                  <span onClick={this.pStarClick} className="prepared star clickable" value="5" >★</span>
+                  <span onClick={this.pStarClick} className={reflection.prepared >= 1 ? "prepared star clicked" : "prepared star clickable" } value="1" >★</span>
+                  <span onClick={this.pStarClick} className={reflection.prepared >= 2 ? "prepared star clicked" : "prepared star clickable" } value="2" >★</span>
+                  <span onClick={this.pStarClick} className={reflection.prepared >= 3 ? "prepared star clicked" : "prepared star clickable" } value="3" >★</span>
+                  <span onClick={this.pStarClick} className={reflection.prepared >= 4 ? "prepared star clicked" : "prepared star clickable" } value="4" >★</span>
+                  <span onClick={this.pStarClick} className={reflection.prepared >= 5 ? "prepared star clicked" : "prepared star clickable" } value="5" >★</span>
                 </div>
               </fieldset>
             </li>
@@ -221,11 +220,11 @@ export default class extends React.Component {
                 <legend >Driven and Independent</legend>
                 <div className="field rating clearfix">
                   <input type="hidden" />
-                  <span onClick={this.iStarClick} className="independent star clickable" value="1" >★</span>
-                  <span onClick={this.iStarClick} className="independent star clickable" value="2" >★</span>
-                  <span onClick={this.iStarClick} className="independent star clickable" value="3" >★</span>
-                  <span onClick={this.iStarClick} className="independent star clickable" value="4" >★</span>
-                  <span onClick={this.iStarClick} className="independent star clickable" value="5" >★</span>
+                  <span onClick={this.iStarClick} className={reflection.independent >= 1 ? "independent star clicked" : "independent star clickable" } value="1" >★</span>
+                  <span onClick={this.iStarClick} className={reflection.independent >= 2 ? "independent star clicked" : "independent star clickable" } value="2" >★</span>
+                  <span onClick={this.iStarClick} className={reflection.independent >= 3 ? "independent star clicked" : "independent star clickable" } value="3" >★</span>
+                  <span onClick={this.iStarClick} className={reflection.independent >= 4 ? "independent star clicked" : "independent star clickable" } value="4" >★</span>
+                  <span onClick={this.iStarClick} className={reflection.independent >= 5 ? "independent star clicked" : "independent star clickable" } value="5" >★</span>
                 </div>
               </fieldset>
             </li>
