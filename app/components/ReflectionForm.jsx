@@ -58,9 +58,11 @@ export default class extends React.Component {
     if (this.unsubscribe) this.unsubscribe()
 
     // Whenever our ref's value changes, set {value} on our state.
-    const listener = fireRef.on('value', snapshot =>
-      this.setState({ reflection: snapshot.val() }))
-    console.log('THE LISTENER LISTENED ', this.state)
+    const listener = fireRef.on('value', snapshot => {
+      this.setState({ reflection: snapshot.val() })
+      console.log('THE LISTENER LISTENED ', this.state)
+    })
+
     // Set unsubscribe to be a function that detaches the listener.
     this.unsubscribe = () => fireRef.off('reflection', listener)
   }
@@ -128,7 +130,7 @@ export default class extends React.Component {
     window.alert('Thank you for submitting your reflection. It has been received.  You may edit it until Sunday 11:59 PM')
     // var submitButton = document.getElementsByClassName('btn btn-primary mt1')
     // submitButton.innerHTML = 'Edit'
-    
+
     // A post entry --> will eventually want a uid to include in the part of the db for that user
     // var postData = {date: new Date(), reflection: this.state.reflection}
     // // Get a key for a new Post
@@ -144,8 +146,9 @@ export default class extends React.Component {
   }
 
   render() {
-    const { reflection } = this.state || {}
-    // console.log('VALUE', value, 'fireRef', this.props.fireRef)
+    const { reflection } = this.state
+    // console.log('fireRef', this.props.fireRef)
+    console.log('Beginning state', this.state)
     return (
       <div>
 

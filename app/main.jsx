@@ -7,7 +7,7 @@ import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
 
 
-import Form from './components/Form'
+import FormIndex from './components/FormIndex'
 import ReflectionFormIndex from './components/ReflectionFormIndex'
 import FeedbackViz from './components/FeedbackViz'
 import Viewbar from './components/Viewbar'
@@ -38,9 +38,9 @@ const App = ({ children }) =>
 render(
   <Router history={browserHistory}>
     <Route path="/" component={App} >
-      <IndexRoute component={Form} />
+      <IndexRoute component={FeedbackViz} />
       <Route path="/feedback/week/:weekId" component={FeedbackViz} />
-      <Route path="/form/" component={Form} />
+      <Route path="/form/:name" component={FormIndex} />
       <Route path="/reflection/:name" component={ReflectionFormIndex} />
     </Route>
   </Router>,

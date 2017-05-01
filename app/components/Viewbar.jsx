@@ -30,7 +30,7 @@ const Viewbar = () =>
         <Link to="/reflection/mschreiber" activeClassName="active">Self Reflection Form</Link>
       </li>
       <li>
-        <Link to="/form" activeClassName="active">Partner Feedback Form</Link>
+        <Link to="/form/aalexander" activeClassName="active">Partner Feedback Form</Link>
       </li>
       <li>
         <Link to="/feedback/week/1" activeClassName="active">Feedback Visualization</Link>
