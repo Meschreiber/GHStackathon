@@ -39,9 +39,9 @@ render(
   <Router history={browserHistory}>
     <Route path="/" component={App} >
       <IndexRoute component={Form} />
-      <Route path="feedback/week/:weekId" component={FeedbackViz} />
-      <Route path="form/" component={Form} />
-      <Route path="reflection/:name" component={ReflectionFormIndex} />
+      <Route path="/feedback/week/:weekId" component={FeedbackViz} />
+      <Route path="/form/" component={Form} />
+      <Route path="/reflection/:name" component={ReflectionFormIndex} />
     </Route>
   </Router>,
   document.getElementById('app')

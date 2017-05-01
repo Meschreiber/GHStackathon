@@ -58,7 +58,7 @@ export default class extends React.Component {
     if (this.unsubscribe) this.unsubscribe()
 
     // Whenever our ref's value changes, set {value} on our state.
-    const listener = fireRef.on('reflection', snapshot =>
+    const listener = fireRef.on('value', snapshot =>
       this.setState({ reflection: snapshot.val() }))
     console.log('THE LISTENER LISTENED ', this.state)
     // Set unsubscribe to be a function that detaches the listener.
@@ -126,20 +126,21 @@ export default class extends React.Component {
   postNewReflection = (evt) => {
     evt.preventDefault()
     window.alert('Thank you for submitting your reflection. It has been received.  You may edit it until Sunday 11:59 PM')
-    var submitButton = document.getElementsByClassName('btn btn-primary mt1')
-    // For some reason this is not changing the text ...
-    submitButton.innerHTML = 'Edit'
+    // var submitButton = document.getElementsByClassName('btn btn-primary mt1')
+    // submitButton.innerHTML = 'Edit'
+    
     // A post entry --> will eventually want a uid to include in the part of the db for that user
-    var postData = {date: new Date(), reflection: this.state.reflection}
-    // Get a key for a new Post
-    var newPostKey = this.props.fireRef.push().key
+    // var postData = {date: new Date(), reflection: this.state.reflection}
+    // // Get a key for a new Post
+    // var newPostKey = this.props.fireRef.push().key
+    // // Write a new post's data simultaneously in the reflections list
+    // var updates = {}
+    // updates[newPostKey] = postData
+    // // Include the line below when there are multiple users?
+    // // updates['/user-posts/' + uid + '/' + newPostKey] = postData
+    // return this.props.fireRef.update(updates)
 
-    // Write a new post's data simultaneously in the reflections list
-    var updates = {}
-    updates[newPostKey] = postData
-    // Include the line below when there are multiple users?
-    // updates['/user-posts/' + uid + '/' + newPostKey] = postData
-    return this.props.fireRef.update(updates)
+    this.props.fireRef.set(this.state)
   }
 
   render() {
