@@ -12,6 +12,7 @@ var BarChart = ReactD3.BarChart
 
 import firebase from 'APP/fire'
 var database = firebase.database()
+console.log('The data: ', data)
 firebase.database().ref('feedback/').set(data)
 
 

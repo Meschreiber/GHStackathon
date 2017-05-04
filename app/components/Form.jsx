@@ -1,33 +1,33 @@
 import React from 'react'
 
 export default class extends React.Component {
-  componentDidMount() {
-    // When the component mounts, start listening to the fireRef
-    // we were given.
-    this.listenTo(this.props.fireRef)
-  }
-  componentWillUnmount() {
-    // When we unmount, stop listening.
-    this.unsubscribe()
-  }
+  // componentDidMount() {
+  //   // When the component mounts, start listening to the fireRef
+  //   // we were given.
+  //   this.listenTo(this.props.fireRef)
+  // }
+  // componentWillUnmount() {
+  //   // When we unmount, stop listening.
+  //   this.unsubscribe()
+  // }
 
-  componentWillReceiveProps(incoming, outgoing) {
-    // When the props sent to us by our parent component change,
-    // start listening to the new firebase reference.
-    this.listenTo(incoming.fireRef)
-  }
+  // componentWillReceiveProps(incoming, outgoing) {
+  //   // When the props sent to us by our parent component change,
+  //   // start listening to the new firebase reference.
+  //   this.listenTo(incoming.fireRef)
+  // }
 
-  listenTo(fireRef) {
-    // If we're already listening to a ref, stop listening there.
-    if (this.unsubscribe) this.unsubscribe()
+  // listenTo(fireRef) {
+  //   // If we're already listening to a ref, stop listening there.
+  //   if (this.unsubscribe) this.unsubscribe()
 
-    // Whenever our ref's value changes, set {value} on our state.
-    const listener = fireRef.on('value', snapshot =>
-      this.setState({ value: snapshot.val() }))
+  //   // Whenever our ref's value changes, set {value} on our state.
+  //   const listener = fireRef.on('value', snapshot =>
+  //     this.setState({ reflection: snapshot.val() }))
 
-    // Set unsubscribe to be a function that detaches the listener.
-    this.unsubscribe = () => fireRef.off('value', listener)
-  }
+  //   // Set unsubscribe to be a function that detaches the listener.
+  //   this.unsubscribe = () => fireRef.off('value', listener)
+  // }
 
   cStarClick = (evt) => {
     const rating = evt.target.getAttribute('value')
@@ -87,9 +87,9 @@ export default class extends React.Component {
     this.setState({ reflection: { ...this.state.reflection, improvement: evt.target.value } })
   }
 
-  postNewReflection = (evt) => {
-    evt.preventDefault()
-    window.alert('Thank you for submitting your reflection. It has been received.  You may edit it until Sunday 11:59 PM')
+  // postNewReflection = (evt) => {
+  //   evt.preventDefault()
+  //   window.alert('Thank you for submitting your reflection. It has been received.  You may edit it until Sunday 11:59 PM')
     // var submitButton = document.getElementsByClassName('btn btn-primary mt1')
     // submitButton.innerHTML = 'Edit'
 
@@ -104,11 +104,10 @@ export default class extends React.Component {
     // // updates['/user-posts/' + uid + '/' + newPostKey] = postData
     // return this.props.fireRef.update(updates)
 
-    this.props.fireRef.set(this.state)
-  }
+    // this.props.fireRef.set(this.state)
 
   render() {
-    const { reflection } = this.state || {}
+    const reflection = this.state
     return (
       <div>
         <header id="header" className="info">
